@@ -4,8 +4,13 @@
   apply them here
 */
 
-@import '../fonts/raleway';
+@import '../fonts/rubik';
+@import '../fonts/rubik-mono-one';
 
 body {
-  font-family: 'Raleway';
+  font-family: 'Rubik';
+}
+
+h1, time {
+	font-family: 'Rubik Mono One';
 }

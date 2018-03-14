@@ -8,15 +8,13 @@
     / Remember to generate your favicon here: https://realfavicongenerator.net/
     / END FAVICON
     / Use title if it's in the page YAML frontmatter
-    %title= "Tadka // " + current_page.data.title || "Tadka"
-    = stylesheet_link_tag 'global', async: true
-    = javascript_include_tag 'global-bundle', async: true
-  %body{class: page_classes}
-    = partial "partials/nav"
+    %title= "Wholesome Circuits | " + current_page.data.title || "Wholesome Circuits"
+    = stylesheet_link_tag 'global', 'project', async: true
+    = javascript_include_tag 'global-bundle', 'project-bundle', async: true
+  %body#border_walker{class: page_classes}
     %main{role: "main", class: "project"}
       .project__meta
-        %h1= current_article.title
-        %time= current_article.date.strftime(t("common.date_default"))
+        %h1.project__title= current_article.title
+        %time.project__year= current_article.date.strftime('%Y')
       %article
         = yield
-    = partial "partials/footer"

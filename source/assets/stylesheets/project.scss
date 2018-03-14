@@ -1,0 +1,36 @@
+.project {
+	margin: 50px;
+}
+
+.project__meta {
+	margin-bottom: 20px;
+}
+
+.project__title {
+	font-size: 40px;
+	margin-bottom: 0;
+}
+
+.project__year {
+	font-size: 24px;
+}
+
+.project__video {
+	height: 500px;
+	width: 100%;
+}
+
+.project__image-container {
+	padding-top: 30px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
+	grid-gap: 30px;
+}
+
+.project__image {
+	max-width: 100%;
+}
+
+.project__para-1 {
+	margin-top: 32px;
+}

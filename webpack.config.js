@@ -10,7 +10,8 @@ const extractPlugin = new ExtractTextPlugin({
 module.exports = {
   entry: {
     global: './source/assets/javascripts/global.js',
-    index: './source/assets/javascripts/index.js'
+    index: './source/assets/javascripts/index.js',
+    project: './source/assets/javascripts/project.js'
   },
 
   module: {

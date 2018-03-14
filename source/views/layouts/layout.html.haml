@@ -12,7 +12,5 @@
     = stylesheet_link_tag 'global', async: true
     = javascript_include_tag 'global-bundle', async: true
   %body{class: page_classes}
-    = partial "partials/nav"
     %main{role: "main"}
       = yield
-    = partial "partials/footer"

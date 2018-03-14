@@ -1,5 +1,5 @@
 ---
-title: Ashwin Vaswani // Projects
+title: Wholesome Circuits | Projects
 layout: projects
 ---
 
@@ -12,8 +12,7 @@ layout: projects
     %article
       = tag :img, src: article.data.featured_img, alt: article.data.featured_img_alt
       %div
-        %h3= article.title
-        %time= article.date.strftime(t("common.date_default"))
+        %h3= article.title + " " + article.date.strftime('%Y')
         / - article.tags.each do |t|
         /   %span= '//' + t + '//'
 
