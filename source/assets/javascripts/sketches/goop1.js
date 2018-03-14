@@ -37,7 +37,7 @@ var sketch = function(p) {
     a_mult = p.random(0.001, 0.1);
     x_mult = p.random(0.001, 0.1);
     y_mult = p.random(0.001, 0.1);
-  }
+  };
 
   p.draw = function() {
     p.background(51);
@@ -54,7 +54,7 @@ var sketch = function(p) {
     gradient_grid();
 
     p.image(buffer, 0, 0);
-  }
+  };
 
   function gradient_grid() {
     var y_offset = 0;
@@ -65,14 +65,14 @@ var sketch = function(p) {
       for(let i = 0; i<num_steps; i++) {
 
         buffer.fill(p.map(p.sin(color_inc+other_inc * r_mult), -1, 1, 0, 250),
-                    p.map(p.sin(color_inc+other_inc * g_mult), -1, 1, 0, 250),
-                    p.map(p.sin(color_inc+other_inc * b_mult), -1, 1, 0, 250),
-                    p.map(p.sin(color_inc+other_inc * a_mult), -1, 1, 10, 250));
+          p.map(p.sin(color_inc+other_inc * g_mult), -1, 1, 0, 250),
+          p.map(p.sin(color_inc+other_inc * b_mult), -1, 1, 0, 250),
+          p.map(p.sin(color_inc+other_inc * a_mult), -1, 1, 10, 250));
 
         buffer.rect (i*step_size + p.map(p.cos(p.frameCount * x_mult),-1, 1, 0, step_size),
-            j* step_size + p.map(p.sin(p.frameCount * y_mult),-1, 1, 0, step_size),
-            p.map(p.mouseX, 0, p.width,  1, 16),
-            p.map(p.mouseY, 0, p.height, 1, 16));
+          j* step_size + p.map(p.sin(p.frameCount * y_mult),-1, 1, 0, step_size),
+          p.map(p.mouseX, 0, p.width,  1, 16),
+          p.map(p.mouseY, 0, p.height, 1, 16));
 
         color_inc += 0.001;
         x_offset += inc;
@@ -82,7 +82,7 @@ var sketch = function(p) {
     }
   }
 
-//FEEDBACK FUNCTIONS ----------------------------------------------------------------
+  //FEEDBACK FUNCTIONS ----------------------------------------------------------------
 
   function melt(tx, ty, sx, sy, angle){
     buffer.push();
@@ -95,7 +95,7 @@ var sketch = function(p) {
   p.windowResized = function() {
     p.resizeCanvas(window.innerWidth, window.innerHeight);
     buffer = setupBuffer();
-  }
+  };
 
   function setupBuffer() {
     let b = p.createGraphics(window.innerWidth, window.innerHeight);
@@ -107,6 +107,6 @@ var sketch = function(p) {
 
     return b;
   }
-}
+};
 
 var myp5 = new p5(sketch, 'goop');

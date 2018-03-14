@@ -41,9 +41,9 @@ module.exports = {
 
   plugins: [
     extractPlugin,
-    new OfflinePlugin({
-      publicPath: '/'
-    }),
+    // new OfflinePlugin({
+    //   publicPath: '/'
+    // }),
     new CleanWebpackPlugin(['.tmp/dist'])
   ],
 
