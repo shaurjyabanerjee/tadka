@@ -2,6 +2,7 @@
 //Mike Leisz and Shaurjya Banerjee 2018
 import p5 from 'p5';
 
+module.exports =  function() {
 var sketch = function(p) {
 
   var num_steps = 42;
@@ -24,7 +25,7 @@ var sketch = function(p) {
     
   p.setup = function() {
     p.pixelDensity(1);
-    p.createCanvas(window.innerWidth, window.innerHeight);
+    p.createCanvas(p.windowWidth, p.windowHeight);
 
     buffer = setupBuffer();
 
@@ -110,3 +111,4 @@ var sketch = function(p) {
 };
 
 var myp5 = new p5(sketch);
+}

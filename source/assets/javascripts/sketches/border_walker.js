@@ -1,15 +1,16 @@
 import p5 from 'p5';
 
+module.exports =  function() {
 var sketch = function(p) {
 
   var walkers = [];
 
   p.setup = function() {
     var body = document.body,
-    		html = document.documentElement;
+        html = document.documentElement;
     var height = Math.max( body.scrollHeight, body.offsetHeight, 
       html.clientHeight, html.scrollHeight, html.offsetHeight );
-    p.createCanvas(window.innerWidth, height);
+    p.createCanvas(p.windowWidth, p.windowHeight);
     p.noStroke();
     p.frameRate(60);
 
@@ -26,7 +27,7 @@ var sketch = function(p) {
   };
 
   function Walker(m, s) {
-		
+    
     this.margin = m;
     this.x_pos  = m/2;
     this.y_pos  = m/2;
@@ -180,9 +181,9 @@ var sketch = function(p) {
     this.display = function()
     {
       p.fill(p.map(p.sin(p.frameCount*this.r_mult), -1, 1, 10,  255),
-				 p.map(p.sin(p.frameCount*this.g_mult), -1, 1, 10,  255),
-				 p.map(p.sin(p.frameCount*this.b_mult), -1, 1, 10,  255),
-				 p.map(p.sin(p.frameCount*this.a_mult), -1, 1, 100, 250));
+         p.map(p.sin(p.frameCount*this.g_mult), -1, 1, 10,  255),
+         p.map(p.sin(p.frameCount*this.b_mult), -1, 1, 10,  255),
+         p.map(p.sin(p.frameCount*this.a_mult), -1, 1, 100, 250));
 
       p.rect(this.x_pos, this.y_pos, this.step_size, this.step_size);
     };
@@ -190,3 +191,6 @@ var sketch = function(p) {
 };
 
 var myp5 = new p5(sketch, 'border_walker');
+
+}
+

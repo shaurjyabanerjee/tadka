@@ -11,7 +11,7 @@
     %title= "Wholesome Circuits | " + current_page.data.title || "Wholesome Circuits"
     = stylesheet_link_tag 'global', 'project', async: true
     = javascript_include_tag 'global-bundle', 'project-bundle', async: true
-  %body#border_walker{class: page_classes}
+  %body.unready{class: page_classes}
     %main{role: "main", class: "project"}
       .project__meta
         %h1.project__title= current_article.title

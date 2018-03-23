@@ -34,3 +34,11 @@
 .project__para-1 {
 	margin-top: 32px;
 }
+
+
+//Fixes canvas so it does not scroll
+canvas {
+	position: fixed;
+	top: 0;
+	left: 0;
+}
