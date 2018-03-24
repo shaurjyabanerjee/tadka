@@ -2,17 +2,17 @@
 
 // Javascripts
 
-const goop = require('./sketches/goop1');
-const border_walker = require('./sketches/border_walker') 
+const goop = require('./sketches/flowfield');
+const border_walker = require('./sketches/flowfield');
 const $ = require('jquery')
 
 if( Math.random() > 0.5) {
-	$('body').addClass('goop')
+	$('body').addClass('maze_generator')
 	$('body').removeClass("unready")
 	goop()
 } else {
 	
-	$('body').addClass('border')
+	$('body').addClass('maze_generator')
 	$('body').removeClass('unready')
 
 	border_walker()

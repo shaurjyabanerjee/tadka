@@ -7,7 +7,6 @@
     "precommit": "lint-staged"
   },
   "dependencies": {
-    "jquery": "^3.3.1",
     "offline-plugin": "^4.8.4",
     "p5": "^0.6.0",
     "webpack": "^3.5.6"

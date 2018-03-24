@@ -19,6 +19,7 @@ var sketch = function(p) {
     }
   };
 
+  
   p.draw = function() {
     for (var i = 0; i<4; i++) {
       walkers[i].update();
