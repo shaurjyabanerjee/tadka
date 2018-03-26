@@ -1,18 +1,34 @@
 // Stylesheets
 import '../stylesheets/project.scss';
 
-const goop = require('./sketches/goop1');
-const border_walker = require('./sketches/border_walker') 
+const flowfield = require('./sketches/flowfield');
+const border_walker = require('./sketches/border_walker');
+const gradient_snake = require('./sketches/gradient_snake');
+
 const $ = require('jquery')
 
-if( Math.random() > 0.5) {
-	$('body').addClass('goop')
+
+var which_sketch = Math.random();
+
+console.log(which_sketch);
+
+if (which_sketch < 0.33) {
+	$('body').addClass('flowfield')
 	$('body').removeClass("unready")
 
-	goop()
-} else {
+	flowfield()
+} 
+
+else if (which_sketch >= 0.33 && which_sketch < 0.66) {
 	$('body').addClass('border')
 	$('body').removeClass("unready")
 
 	border_walker()
+}
+
+else if (which_sketch >= 0.66) {
+	$('body').addClass('gradient_snake')
+	$('body').removeClass("unready")
+
+	gradient_snake()
 }
