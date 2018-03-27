@@ -6,6 +6,7 @@
 
 
 import p5 from 'p5';
+import "p5/lib/addons/p5.sound";
 
 module.exports =  function() {
   var sketch = function(p) {
@@ -44,6 +45,11 @@ module.exports =  function() {
     var player_positions_y = [];
 
 
+    var osc1;
+    var osc2;
+    var env;
+
+
     p.setup = function() {
       p.pixelDensity(1);
       p.createCanvas(window.innerWidth, window.innerHeight);
@@ -75,6 +81,27 @@ module.exports =  function() {
       }
       current = grid[0];
 
+      osc1 = new p5.Oscillator();
+      osc1.setType('square');
+      osc1.freq(110);
+      osc1.amp(0.5);
+      //osc1.start();
+
+      osc2 = new p5.Oscillator();
+      osc2.setType('square');
+      osc2.freq(440);
+      osc2.amp(1000);
+      //osc2.start();
+
+      env = new p5.Env();
+      env.setADSR(0.001, 0.15, 0, 0.5);
+      env.setRange(1, 0);
+
+      osc1.amp(env);
+      osc2.amp(env);
+
+      osc2.disconnect();
+      osc1.freq(osc2);
     }
 
     p.draw = function() {
