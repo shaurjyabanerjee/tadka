@@ -7,37 +7,32 @@ const gradient_snake = require('./sketches/gradient_snake');
 const phyllotaxis = require('./sketches/phyllotaxis');
 const maze_generator = require('./sketches/maze_generator');
 
-const $ = require('jquery')
-
+var bodyEl = document.getElementsByTagName('body')[0];
 
 var which_sketch = Math.random();
 
 console.log(which_sketch);
 
 if (which_sketch < 0.25) {
-	$('body').addClass('flowfield')
-	$('body').removeClass("unready")
+	bodyEl.className = 'flowfield';
 
 	flowfield()
-} 
+}
 
 else if (which_sketch >= 0.25 && which_sketch < 0.50) {
-	$('body').addClass('border')
-	$('body').removeClass("unready")
+  bodyEl.className = 'border';
 
 	border_walker()
 }
 
 else if (which_sketch >= 0.50  && which_sketch < 0.75) {
-	$('body').addClass('maze_generator')
-	$('body').removeClass("unready")
+  bodyEl.className = 'maze_generator';
 
 	maze_generator()
 }
 
 else if (which_sketch >= 0.75) {
-	$('body').addClass('phyllotaxis')
-	$('body').removeClass("unready")
+  bodyEl.className = 'phyllotaxis';
 
 	phyllotaxis()
 }

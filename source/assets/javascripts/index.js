@@ -4,16 +4,14 @@
 
 const goop = require('./sketches/maze_generator');
 const border_walker = require('./sketches/maze_generator');
-const $ = require('jquery')
+var bodyEl = document.getElementsByTagName('body')[0];
 
 if( Math.random() > 0.5) {
-	$('body').addClass('maze_generator')
-	$('body').removeClass("unready")
+  bodyEl.className = 'maze_generator';
+
 	goop()
 } else {
-	
-	$('body').addClass('maze_generator')
-	$('body').removeClass('unready')
+	bodyEl.className = 'maze_generator';
 
 	border_walker()
 }
