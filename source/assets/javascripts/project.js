@@ -1,10 +1,10 @@
 // Stylesheets
 import '../stylesheets/project.scss';
 
-const flowfield = require('./sketches/flowfield');
-const border_walker = require('./sketches/border_walker');
+const flowfield      = require('./sketches/flowfield');
+const border_walker  = require('./sketches/border_walker');
 const gradient_snake = require('./sketches/gradient_snake');
-const phyllotaxis = require('./sketches/phyllotaxis');
+const phyllotaxis    = require('./sketches/phyllotaxis');
 const maze_generator = require('./sketches/maze_generator');
 
 var bodyEl = document.getElementsByTagName('body')[0];
