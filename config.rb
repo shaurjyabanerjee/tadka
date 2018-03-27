@@ -50,6 +50,7 @@ end
 activate :blog do |blog|
   blog.sources = 'projects/:title.html'
   blog.permalink = 'projects/{title}.html'
+  blog.publish_future_dated = true
 
   blog.default_extension = '.haml'
   blog.layout = 'project'
