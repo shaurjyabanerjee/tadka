@@ -15,24 +15,32 @@ console.log(which_sketch);
 
 if (which_sketch < 0.25) {
 	bodyEl.className = 'flowfield';
+  bodyReady();
 
 	flowfield()
 }
 
 else if (which_sketch >= 0.25 && which_sketch < 0.50) {
   bodyEl.className = 'border';
+  bodyReady();
 
 	border_walker()
 }
 
 else if (which_sketch >= 0.50  && which_sketch < 0.75) {
   bodyEl.className = 'maze_generator';
+  bodyReady();
 
 	maze_generator()
 }
 
 else if (which_sketch >= 0.75) {
   bodyEl.className = 'phyllotaxis';
+  bodyReady();
 
 	phyllotaxis()
+}
+
+function bodyReady() {
+  bodyEl.classList.remove('unready');
 }
