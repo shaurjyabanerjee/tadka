@@ -6,68 +6,91 @@ import "p5/lib/addons/p5.sound";
 module.exports =  function() {
   var sketch = function(p) {
 
-    var buffer;
+  var buffer;
 
-    var step;
-    var cols, rows;
-    var s;
-    var player_positions_x = [];
-    var player_positions_y = [];
-    var game_over;
-    var bgnd_color;
-    var bgnd_alpha;
-    var gradient_mult;
-    var highlight_weight;
-    var snake_rate;
+  var step;
+  var cols, rows;
+  var s;
+  var player_positions_x = [];
+  var player_positions_y = [];
+  var game_over;
+  var bgnd_color;
+  var bgnd_alpha;
+  var gradient_mult;
+  var highlight_weight;
+  var snake_rate;
 
-    var osc1, osc2;
-    var env1, env2;
-    var reverb;
+  var osc1, osc2;
+  var env1, env2;
+  var reverb;
+  var reverb2;
+  var reverb_time;
+  var filter;
+  var filter_f;
+  var filter_r;
+
+  var osc3, osc4;
+  var env3;
 
         
-    p.setup = function() {
-      p.pixelDensity(1);
-      p.createCanvas(window.innerWidth, window.innerHeight);
-      p.init();
-      p.setup_audio();
+  p.setup = function() {
+    p.pixelDensity(1);
+    p.createCanvas(window.innerWidth, window.innerHeight);
+    p.init();
+    p.setup_audio();
 
-      buffer = setupBuffer();
-    }
+    buffer = setupBuffer();
+  }
 
-    p.init = function() {
-      step = p.floor(p.random(20,75));
-      cols = p.width/step;
-      rows = p.height/step;
-      snake_rate = p.floor(p.random(2,7));
-      bgnd_color = 15;
-      bgnd_alpha = 75;
-      gradient_mult = p.floor(p.random(2, 7));
-      highlight_weight = 1;
-      game_over = false;
+  p.init = function() {
+    step = p.floor(p.random(20,75));
+    cols = p.width/step;
+    rows = p.height/step;
+    snake_rate = p.floor(p.random(4,10));
+    bgnd_color = 15;
+    bgnd_alpha = 75;
+    gradient_mult = p.floor(p.random(2, 7));
+    highlight_weight = 1;
+    game_over = false;
 
-      s = new Snake;
+    s = new Snake;
 
-      p.noFill();
-      p.rect(0,0, cols*step, rows*step);
-      p.noStroke();
-    }
+    p.noFill();
+    p.rect(0,0, cols*step, rows*step);
+    p.noStroke();
+  }
 
-    p.setup_audio = function() {
-      osc1 = new p5.Oscillator();
-      osc1.setType('sawtooth');
-      osc2 = new p5.Oscillator();
-      osc2.setType('triangle');
-        
-      env1 = new p5.Env();
-      env2 = new p5.Env();
+  p.setup_audio = function() {
+    osc1 = new p5.Oscillator();
+    osc1.setType('sawtooth');
+    osc2 = new p5.Oscillator();
+    osc2.setType('triangle');
+    osc3 = new p5.Oscillator();
+    osc3.setType('triangle');
+    osc4 = new p5.Oscillator();
+    osc4.setType('sawtooth');
+      
+    env1 = new p5.Env();
+    env2 = new p5.Env();
+    env3 = new p5.Env();
 
-      reverb = new p5.Reverb();
+    reverb = new p5.Reverb();
+    reverb2 = new p5.Reverb();
+
+    filter = new p5.LowPass();
+
+    reverb.process(osc1, reverb_time, 2);
+    reverb2.process(osc3, 2, 2);
+
+    //osc1.disconnect();
+    osc3.disconnect();
+    osc1.connect(filter);
+    osc3.connect(filter);
   }
 
   p.food_sound = function() {
     var decay_time = p.map(s.len, 1, 30, 0.2,1);
     var mod_depth = p.map(s.len, 1, 30, 100, 4000);
-    var reverb_time = p.map(s.len, 1, 30, 0.5, 10);
 
     var o1_f = p.floor(p.random(100, 200));
     var o2_f = p.floor(p.random(100, 500));
@@ -88,7 +111,7 @@ module.exports =  function() {
     env1.setRange(1, 0);
     env2.setRange(1, 0);
 
-    osc1.amp(0.5);
+    osc1.amp(0.001);
     osc2.amp(mod_depth);
     osc1.freq(o1_f);
     osc2.freq(o2_f);
@@ -98,32 +121,67 @@ module.exports =  function() {
     osc2.stop(decay_time);
     osc1.freq(osc2);
 
-    reverb.process(osc1, reverb_time, 2);
+    
     reverb.amp(3);
 
     env1.play();
     env2.play();
   }
 
-    p.draw = function() {
-      p.background(51);
+  p.tick_sound = function() {
+    var decay_time = p.map(s.len, 1, 30, 0.2,1);
+    var o3_f = p.floor(p.random(500, 700));
+    var o4_f = p.map(s.len, 1, 30, 60, 1000);
 
-      let translateX = ((p.mouseX - p.width/2) + 10) * 0.00024;
-      let translateY = ((p.mouseY - p.height/2) + 10) * 0.00024;
-      let scaleX = ((p.mouseX+200) - p.width/2) * 0.00064;
-      let scaleY = ((p.mouseY+200) - p.height/2) * 0.00064;
+    env3.setADSR(0.001, decay_time, 0.01, 0.01);
+    env3.setInput(osc3.amp());
 
-      melt(translateX, translateY, scaleX, scaleY, 0.001);
+    osc4.freq(o4_f);
+    osc4.disconnect();
+    osc4.amp(1000);
 
-      //Draw p5 stuff here (to the buffer)
-      if (p.frameCount%snake_rate == 0) {
-        p.draw_grid();
-        s.update();
-        s.display();
-      }
+    osc3.freq(o3_f);
+    osc3.freq(osc4);
+    osc3.amp(0.04);
+    osc3.start();
+    osc3.stop(decay_time);
+    osc4.start();
+    osc4.stop(decay_time);
 
-      p.image(buffer, 0, 0);
+    env3.play();
+
+  }
+
+  p.draw = function() {
+    p.background(51);
+
+    let translateX = ((p.mouseX - p.width/2) + 10) * 0.00024;
+    let translateY = ((p.mouseY - p.height/2) + 10) * 0.00024;
+    let scaleX = ((p.mouseX+200) - p.width/2) * 0.00064;
+    let scaleY = ((p.mouseY+200) - p.height/2) * 0.00064;
+
+    melt(translateX, translateY, scaleX, scaleY, 0.001);
+
+    filter_f = p.map (p.mouseX, 0, p.width, 25, 1000);
+    filter_r = p.map(p.mouseY, 0, p.height, 10, 1);
+
+    // set filter parameters
+    filter.set(filter_f, filter_r);
+
+    //Draw p5 stuff here (to the buffer)
+    if (p.frameCount%snake_rate == 0) {
+      p.draw_grid();
+      s.update();
+      s.display();
     }
+
+    if ((p.frameCount%(snake_rate*3) == 0) && game_over == false) {
+      reverb_time = p.map(s.len, 1, 30, 0.5, 10);
+      p.tick_sound();
+    }
+
+    p.image(buffer, 0, 0);
+  }
 
 
 
