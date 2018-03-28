@@ -6,6 +6,7 @@ const border_walker  = require('./sketches/border_walker');
 const gradient_snake = require('./sketches/gradient_snake');
 const phyllotaxis    = require('./sketches/phyllotaxis');
 const maze_generator = require('./sketches/maze_generator');
+const feedbake_snake = require('./sketches/feedbake_snake');
 
 var bodyEl = document.getElementsByTagName('body')[0];
 
@@ -28,10 +29,10 @@ else if (which_sketch >= 0.25 && which_sketch < 0.50) {
 }
 
 else if (which_sketch >= 0.50  && which_sketch < 0.75) {
-  bodyEl.classList.add('maze_generator');
+  bodyEl.classList.add('feedbake_snake');
   bodyReady();
 
-	maze_generator()
+	feedbake_snake()
 }
 
 else if (which_sketch >= 0.75) {
