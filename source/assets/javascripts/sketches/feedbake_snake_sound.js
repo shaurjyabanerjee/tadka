@@ -1,6 +1,7 @@
 //FEEDBAKE SNAKE game for wholesomecircuits.com
 
 import p5 from 'p5';
+import "p5/lib/addons/p5.sound";
 
 module.exports =  function() {
   var sketch = function(p) {
@@ -19,11 +20,16 @@ module.exports =  function() {
     var highlight_weight;
     var snake_rate;
 
+    var osc1, osc2;
+    var env1, env2;
+    var reverb;
+
         
     p.setup = function() {
       p.pixelDensity(1);
       p.createCanvas(window.innerWidth, window.innerHeight);
       p.init();
+      p.setup_audio();
 
       buffer = setupBuffer();
     }
@@ -45,6 +51,59 @@ module.exports =  function() {
       p.rect(0,0, cols*step, rows*step);
       p.noStroke();
     }
+
+    p.setup_audio = function() {
+      osc1 = new p5.Oscillator();
+      osc1.setType('sawtooth');
+      osc2 = new p5.Oscillator();
+      osc2.setType('triangle');
+        
+      env1 = new p5.Env();
+      env2 = new p5.Env();
+
+      reverb = new p5.Reverb();
+  }
+
+  p.food_sound = function() {
+    var decay_time = p.map(s.len, 1, 30, 0.2,1);
+    var mod_depth = p.map(s.len, 1, 30, 100, 4000);
+    var reverb_time = p.map(s.len, 1, 30, 0.5, 10);
+
+    var o1_f = p.floor(p.random(100, 200));
+    var o2_f = p.floor(p.random(100, 500));
+    //console.log(decay_time);
+
+    env1.setADSR(0.001, decay_time, 0.01, 0.01);
+    env2.setADSR(0.001, decay_time, 0.01, 0.01);
+
+    osc2.disconnect();
+    //osc1.disconnect();
+
+    env1.setInput(osc1.amp());
+    env2.setInput(osc2.amp());
+
+    osc1.amp(env1);
+    osc2.amp(env2);
+
+    env1.setRange(1, 0);
+    env2.setRange(1, 0);
+
+    osc1.amp(0.5);
+    osc2.amp(mod_depth);
+    osc1.freq(o1_f);
+    osc2.freq(o2_f);
+    osc1.start();
+    osc2.start();
+    osc1.stop(decay_time);
+    osc2.stop(decay_time);
+    osc1.freq(osc2);
+
+    reverb.process(osc1, reverb_time, 2);
+    reverb.amp(3);
+
+    env1.play();
+    env2.play();
+  }
 
     p.draw = function() {
       p.background(51);
@@ -164,6 +223,7 @@ module.exports =  function() {
         //If we are at the food location
         if (this.x_pos == this.food_x && this.y_pos == this.food_y)
         {
+          p.food_sound();
           this.generate_food();
           this.len ++;
         }

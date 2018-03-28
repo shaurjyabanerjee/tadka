@@ -113,6 +113,10 @@ var sketch = function(p) {
     }
   }
 
+  p.windowResized = function() {
+    p.resizeCanvas(window.innerWidth, window.innerHeight);
+  }
+
   function Particle () {
 
     this.r_mult = p.random(0.001, 0.01);

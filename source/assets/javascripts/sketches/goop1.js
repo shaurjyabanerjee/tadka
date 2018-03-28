@@ -52,12 +52,12 @@ var sketch = function(p) {
 
     buffer.noStroke();
 
-    gradient_grid();
+    p.gradient_grid();
 
     p.image(buffer, 0, 0);
   };
 
-  function gradient_grid() {
+  p.gradient_grid = function() {
     var y_offset = 0;
     color_inc = 0;
 
@@ -81,6 +81,10 @@ var sketch = function(p) {
       y_offset += inc;
       other_inc += 0.01;
     }
+  }
+
+  p.windowResized = function() {
+    p.resizeCanvas(window.innerWidth, window.innerHeight);
   }
 
   //FEEDBACK FUNCTIONS ----------------------------------------------------------------
@@ -110,5 +114,5 @@ var sketch = function(p) {
   }
 };
 
-var myp5 = new p5(sketch);
+var myp5 = new p5(sketch, 'gradient_goop');
 }

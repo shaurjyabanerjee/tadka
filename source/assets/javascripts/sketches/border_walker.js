@@ -27,6 +27,10 @@ var sketch = function(p) {
     }
   };
 
+  p.windowResized = function() {
+      p.resizeCanvas(window.innerWidth, window.innerHeight);
+  }
+
   function Walker(m, s) {
     
     this.margin = m;

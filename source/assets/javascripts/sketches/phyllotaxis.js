@@ -66,6 +66,10 @@ module.exports =  function() {
       start += 5;
     }
 
+    p.windowResized = function() {
+      p.resizeCanvas(window.innerWidth, window.innerHeight);
+    }
+
     p.linear_n = function() {
       if (direction == 0) {n += 5;}
       else if (direction == 1) {n -= 5;}

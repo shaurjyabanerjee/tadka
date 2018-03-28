@@ -7,6 +7,7 @@ const gradient_snake = require('./sketches/gradient_snake');
 const phyllotaxis    = require('./sketches/phyllotaxis');
 const maze_generator = require('./sketches/maze_generator');
 const feedbake_snake = require('./sketches/feedbake_snake');
+const grid_goop      = require('./sketches/goop1');
 
 var bodyEl = document.getElementsByTagName('body')[0];
 
@@ -29,10 +30,10 @@ else if (which_sketch >= 0.25 && which_sketch < 0.50) {
 }
 
 else if (which_sketch >= 0.50  && which_sketch < 0.75) {
-  bodyEl.classList.add('feedbake_snake');
+  bodyEl.classList.add('grid_goop');
   bodyReady();
 
-	feedbake_snake()
+	grid_goop()
 }
 
 else if (which_sketch >= 0.75) {

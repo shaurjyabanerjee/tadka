@@ -103,6 +103,10 @@ var sketch = function(p) {
 		}
 	}
 
+	p.windowResized = function() {
+      p.resizeCanvas(window.innerWidth, window.innerHeight);
+    }
+
 	//----------------------------------------------------------------
 
 	function Snake() {
