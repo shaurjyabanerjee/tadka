@@ -27,6 +27,13 @@
 	grid-gap: 30px;
 }
 
+.project__thumbnail-container {
+	padding-top: 30px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
+	grid-gap: 0px;
+}
+
 .project__image {
 	max-width: 100%;
 }
