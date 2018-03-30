@@ -1,13 +1,15 @@
 // Stylesheets
 import '../stylesheets/project.scss';
 
-const flowfield      = require('./sketches/flowfield');
-const border_walker  = require('./sketches/border_walker');
-const gradient_snake = require('./sketches/gradient_snake');
-const phyllotaxis    = require('./sketches/phyllotaxis');
-const maze_generator = require('./sketches/maze_generator');
-const feedbake_snake = require('./sketches/feedbake_snake');
-const grid_goop      = require('./sketches/goop1');
+const flowfield               = require('./sketches/flowfield');
+const flowfield_inverted      = require('./sketches/flowfield_inverted');
+const border_walker           = require('./sketches/border_walker');
+const border_walker_inverted  = require('./sketches/border_walker_inverted');
+const gradient_snake          = require('./sketches/gradient_snake');
+const phyllotaxis             = require('./sketches/phyllotaxis');
+const maze_generator          = require('./sketches/maze_generator');
+const feedbake_snake          = require('./sketches/feedbake_snake');
+const grid_goop               = require('./sketches/goop1');
 
 var bodyEl = document.getElementsByTagName('body')[0];
 
@@ -16,10 +18,10 @@ var which_sketch = Math.random();
 console.log(which_sketch);
 
 if (which_sketch < 0.25) {
-  bodyEl.classList.add('flowfield');
+  bodyEl.classList.add('flowfield_inverted');
   bodyReady();
 
-	flowfield()
+	flowfield_inverted()
 }
 
 else if (which_sketch >= 0.25 && which_sketch < 0.50) {
@@ -37,10 +39,10 @@ else if (which_sketch >= 0.50  && which_sketch < 0.75) {
 }
 
 else if (which_sketch >= 0.75) {
-  bodyEl.classList.add('phyllotaxis');
+  bodyEl.classList.add('border_inverted');
   bodyReady();
 
-	phyllotaxis()
+	border_walker_inverted()
 }
 
 function bodyReady() {

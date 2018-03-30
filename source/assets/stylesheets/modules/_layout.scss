@@ -54,6 +54,10 @@ canvas {
   color: white;
 }
 
-.border {
+.border, .flowfield {
   color: black;
+}
+
+.border_inverted, .flowfield_inverted{
+  color: white;
 }
