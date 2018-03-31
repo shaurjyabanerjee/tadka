@@ -6,11 +6,15 @@ date: 2016-04-20 04:20 PDT
 ---
 
 %div.project__image-container
-	- 1.upto(6) do |index|
+	- 1.upto(3) do |index|
 		= tag :img, src: "/assets/images/projects/jackhammer/jackhammer#{index}.jpg",class:'project__image'
 
 
 
 %p.project__para-1 Jackhammer is a kinetic sculpture that explores the translation of movement and expectation. It uses an extremely slowly moving sledge hammer which is raised and lowered over twelve glass bottles which are spinning very slowly from an extreme 120:1 gear reduction. The sculpture also functioned as a clock, with the main wheel completing one complete rotation in one hour.
+
+%div.project__image-container
+	- 4.upto(6) do |index|
+		= tag :img, src: "/assets/images/projects/jackhammer/jackhammer#{index}.jpg",class:'project__image'
 
 %p.project__para-2 The sledge hammer used in Jackhammer had a hardened steel point embedded in its face, to focus the entire weight of the 8lb hammer on a single point on the surface of the glass bottles below. Over time, due to slippage from weight of the hammer, steel meets glass in tense anticipation.

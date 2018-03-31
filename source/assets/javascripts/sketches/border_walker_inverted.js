@@ -4,6 +4,7 @@ module.exports =  function() {
 var sketch = function(p) {
 
   var walkers = [];
+  var num_walkers;
 
   p.setup = function() {
     var body = document.body,
@@ -15,15 +16,16 @@ var sketch = function(p) {
     p.frameRate(60);
     p.fill(10);
     p.rect(0,0,p.width,p.height);
+    num_walkers = p.floor(p.random(1, 30));
 
-    for (var i = 0; i<6; i++) {
+    for (var i = 0; i<num_walkers; i++) {
       walkers[i] = new Walker(50, 2);
     }
   };
 
   
   p.draw = function() {
-    for (var i = 0; i<4; i++) {
+    for (var i = 0; i<num_walkers; i++) {
       walkers[i].update();
       walkers[i].display();
     }
@@ -31,13 +33,15 @@ var sketch = function(p) {
 
   p.windowResized = function() {
       p.resizeCanvas(window.innerWidth, window.innerHeight);
+      p.fill(10);
+      p.rect(0,0,p.width,p.height);
   }
 
   function Walker(m, s) {
     
     this.margin = m;
-    this.x_pos  = m/2;
-    this.y_pos  = m/2;
+    this.x_pos  = p.random(0 , m);
+    this.y_pos  = p.random(0 , m);
     this.step_size = s;
 
     this.r_mult = p.random(0.001, 0.05);
@@ -188,9 +192,9 @@ var sketch = function(p) {
     this.display = function()
     {
       p.fill(p.map(p.sin(p.frameCount*this.r_mult), -1, 1, 10,  255),
-         p.map(p.sin(p.frameCount*this.g_mult), -1, 1, 10,  255),
-         p.map(p.sin(p.frameCount*this.b_mult), -1, 1, 10,  255),
-         p.map(p.sin(p.frameCount*this.a_mult), -1, 1, 100, 250));
+             p.map(p.sin(p.frameCount*this.g_mult), -1, 1, 10,  255),
+             p.map(p.sin(p.frameCount*this.b_mult), -1, 1, 10,  255),
+             p.map(p.sin(p.frameCount*this.a_mult), -1, 1, 175, 255));
 
       p.rect(this.x_pos, this.y_pos, this.step_size, this.step_size);
     };

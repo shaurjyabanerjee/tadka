@@ -115,6 +115,8 @@ var sketch = function(p) {
 
   p.windowResized = function() {
     p.resizeCanvas(window.innerWidth, window.innerHeight);
+    p.fill(10);
+    p.rect(0,0, p.width, p.height);
   }
 
   function Particle () {
@@ -154,7 +156,7 @@ var sketch = function(p) {
       p.stroke(p.map(p.sin(p.frameCount*this.r_mult),-1,1,color_vals[0], color_vals[3]),
                p.map(p.sin(p.frameCount*this.r_mult),-1,1,color_vals[1], color_vals[4]),
                p.map(p.sin(p.frameCount*this.r_mult),-1,1,color_vals[2], color_vals[5]),
-               22);
+               35);
 
       p.strokeWeight(1);
       p.line(this.pos.x, this.pos.y, this.prevPos.x, this.prevPos.y);
