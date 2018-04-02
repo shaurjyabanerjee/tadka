@@ -22,8 +22,8 @@ module.exports =  function() {
 		  // document.body registers gestures anywhere on the page
 		  var hammer = new Hammer(document.body, options);
 		  hammer.get('swipe').set({
-		    //direction: Hammer.DIRECTION_ALL
-		    direction: Hammer.DIRECTION_VERTICAL
+		    direction: Hammer.DIRECTION_ALL
+		    //direction: Hammer.DIRECTION_VERTICAL
 		  });
 		 
 		  hammer.on("swipe", p.swiped); //tie event 'swipe' to function 'swiped'
