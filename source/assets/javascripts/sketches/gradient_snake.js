@@ -2,6 +2,7 @@
 
 
 import p5 from 'p5';
+import 'hammerjs';
 
 module.exports =  function() {
 var sketch = function(p) {
