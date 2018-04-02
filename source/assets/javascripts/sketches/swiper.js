@@ -22,7 +22,8 @@ module.exports =  function() {
 		  // document.body registers gestures anywhere on the page
 		  var hammer = new Hammer(document.body, options);
 		  hammer.get('swipe').set({
-		    direction: Hammer.DIRECTION_ALL
+		    //direction: Hammer.DIRECTION_ALL
+		    direction: Hammer.DIRECTION_VERTICAL
 		  });
 		 
 		  hammer.on("swipe", p.swiped); //tie event 'swipe' to function 'swiped'
@@ -39,8 +40,15 @@ module.exports =  function() {
 		 
 		p.swiped = function(event) {
 		  console.log(event);
-		  if (event.direction == 4) {
+		  if (event.direction == 1) {
+		    msg = "you swiped up";
+		  }
+		  else if (event.direction == 3) {
+		    msg = "you swiped down";
+		  }
+		  else if (event.direction == 4) {
 		    msg = "you swiped right";
+
 		  } else if (event.direction == 2) {
 		    msg = "you swiped left";
 		  }
