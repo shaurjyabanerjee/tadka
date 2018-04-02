@@ -2,17 +2,17 @@
 
 // Javascripts
 
-const goop = require('./sketches/gradient_snake');
-const border_walker = require('./sketches/gradient_snake');
+const goop = require('./sketches/swiper');
+const border_walker = require('./sketches/swiper');
 var bodyEl = document.getElementsByTagName('body')[0];
 
 if( Math.random() > 0.5) {
-  bodyEl.classList.add('gradient_snake');
+  bodyEl.classList.add('swiper');
   bodyReady();
 
 	goop()
 } else {
-  bodyEl.classList.add('gradient_snake')
+  bodyEl.classList.add('swiper')
   bodyReady();
 
 	border_walker()
