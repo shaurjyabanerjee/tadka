@@ -23,6 +23,11 @@ module.exports =  function() {
 		  var hammer = new Hammer(document.body, options);
 		  hammer.get('swipe').set({
 		    direction: Hammer.DIRECTION_ALL
+		    //direction: Hammer.DIRECTION_VERTICAL
+		  });
+
+		  hammer.get('swipe').set({
+		    //direction: Hammer.DIRECTION_ALL
 		    direction: Hammer.DIRECTION_VERTICAL
 		  });
 		 
