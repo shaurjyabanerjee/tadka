@@ -64,7 +64,7 @@ var sketch = function(p) {
 			cols = p.width/step;
 			rows = p.height/step;
 
-			snake_rate = p.floor(p.random(5,12));
+			snake_rate = p.floor(p.random(3,12));
 			bgnd_color = 15;
 			bgnd_alpha = 255;
 			gradient_mult = p.floor(p.random(2, 7));
