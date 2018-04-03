@@ -20,6 +20,7 @@ var sketch = function(p) {
 	var gradient_mult;
 	var highlight_weight;
 	var snake_rate;
+	var line_opacity;
 
 	p.setup = function() {
 		p.createCanvas(p.windowWidth, p.windowHeight);
@@ -54,12 +55,13 @@ var sketch = function(p) {
 			gradient_mult = p.floor(p.random(2, 7));
 			highlight_weight = 1;
 			game_over = false;
+			line_opacity = 10;
 		}	
 
 		//Iniitial conditions for phones
 		else if (p.windowWidth <= p.windowHeight)
 		{
-			step = p.floor(p.random(20,45));
+			step = p.floor(p.random(20,40));
 
 			cols = p.width/step;
 			rows = p.height/step;
@@ -70,6 +72,7 @@ var sketch = function(p) {
 			gradient_mult = p.floor(p.random(2, 7));
 			highlight_weight = 1;
 			game_over = false;
+			line_opacity = 75;
 		}
 
 		s = new Snake;
@@ -86,7 +89,7 @@ var sketch = function(p) {
 		//frame rate than the rest of the sketch
 		if (p.frameCount%snake_rate == 0) {
 			p.background(bgnd_color, bgnd_alpha);
-		  p.draw_grid();
+		    p.draw_grid();
 			s.update();
 			s.display();
 		} 
@@ -100,7 +103,7 @@ var sketch = function(p) {
 				p.stroke(p.map(p.sin((i/gradient_mult) + s.inc1 * s.r_mult),-1,1,255,10),
 					     p.map(p.sin((i/gradient_mult) + s.inc1 * s.g_mult),-1,1,255,10),
 					     p.map(p.sin((i/gradient_mult) + s.inc1 * s.b_mult),-1,1,255,10),
-					     p.map(p.sin((i/gradient_mult) + s.inc1 * s.b_mult),-1,1,0,1));
+					     line_opacity);
 
 				//p.noStroke();
 
@@ -242,7 +245,7 @@ var sketch = function(p) {
 
 				if (this.is_dead == false) {
 					p.fill (p.map(p.sin(p.frameCount * this.r_mult),-1,1,10,245),
-					 	      p.map(p.sin(p.frameCount * this.g_mult),-1,1,10,245),
+					 	    p.map(p.sin(p.frameCount * this.g_mult),-1,1,10,245),
 					  	    p.map(p.sin(p.frameCount * this.b_mult),-1,1,10,245));
 				}
 			
@@ -294,8 +297,8 @@ var sketch = function(p) {
 			//p.Fill with this color if you are still alive
 			if (this.is_dead == false) {
 				p.fill (p.map(p.sin(p.frameCount * this.r_mult),-1,1,10,245),
-					      p.map(p.sin(p.frameCount * this.g_mult),-1,1,10,245),
-					      p.map(p.sin(p.frameCount * this.b_mult),-1,1,10,245));
+					    p.map(p.sin(p.frameCount * this.g_mult),-1,1,10,245),
+					    p.map(p.sin(p.frameCount * this.b_mult),-1,1,10,245));
 			}
 			
 			p.rect(this.x_pos*step, this.y_pos*step, step, step);	
