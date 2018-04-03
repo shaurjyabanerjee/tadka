@@ -25,11 +25,6 @@ module.exports =  function() {
 		    direction: Hammer.DIRECTION_ALL
 		    //direction: Hammer.DIRECTION_VERTICAL
 		  });
-
-		  hammer.get('swipe').set({
-		    //direction: Hammer.DIRECTION_ALL
-		    direction: Hammer.DIRECTION_VERTICAL
-		  });
 		 
 		  hammer.on("swipe", p.swiped); //tie event 'swipe' to function 'swiped'
 		}
