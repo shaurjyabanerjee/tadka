@@ -101,14 +101,14 @@ var sketch = function(p) {
 			if (event.direction == 8  && s.dir != 2) {s.dir = 0;}
 			if (event.direction == 16 && s.dir != 0) {s.dir = 2;}
 			if (event.direction == 4  && s.dir != 3) {s.dir = 1;}
-			if (event.direction == 4  && s.dir != 1) {s.dir = 3;}
+			if (event.direction == 2  && s.dir != 1) {s.dir = 3;}
 		}
 
 		else if (s.len == 1) {
 			if (event.direction == 8)  {s.dir = 0;}
 			if (event.direction == 16) {s.dir = 2;}
 			if (event.direction == 4)  {s.dir = 1;}
-			if (event.direction == 4)  {s.dir = 3;}
+			if (event.direction == 2)  {s.dir = 3;}
 		}
 	}
 
