@@ -7,6 +7,8 @@ import 'hammerjs';
 module.exports =  function() {
 var sketch = function(p) {
 
+	var msg = "swipe";
+
 	var step;
 	var cols, rows;
 	var s;
@@ -21,10 +23,23 @@ var sketch = function(p) {
 
 	p.setup = function() {
 		p.createCanvas(p.windowWidth, p.windowHeight);
+
+		// set options to prevent default behaviors for swipe, pinch, etc
+		var options = {
+			preventDefault: true
+		}
+		 
+		// document.body registers gestures anywhere on the page
+		var hammer = new Hammer(document.body, options);
+
+		hammer.get('swipe').set({direction: Hammer.DIRECTION_ALL});
+		hammer.on("swipe", p.swiped); //tie event 'swipe' to function 'swiped'
+
 		p.init();
 	}
 
 	p.init = function () {
+
 		step = p.floor(p.random(20,75));
 		cols = p.width/step;
 		rows = p.height/step;
@@ -75,6 +90,25 @@ var sketch = function(p) {
 				s.inc1 += 0.01;
 				p.rect(i*step, j*step, step, step);
 			}
+		}
+	}
+
+
+	p.swiped = function(event) {
+
+		//First handle, player movement
+		if (s.len > 1) {
+			if (event.direction == 8  && s.dir != 2) {s.dir = 0;}
+			if (event.direction == 16 && s.dir != 0) {s.dir = 2;}
+			if (event.direction == 4  && s.dir != 3) {s.dir = 1;}
+			if (event.direction == 4  && s.dir != 1) {s.dir = 3;}
+		}
+
+		else if (s.len == 1) {
+			if (event.direction == 8)  {s.dir = 0;}
+			if (event.direction == 16) {s.dir = 2;}
+			if (event.direction == 4)  {s.dir = 1;}
+			if (event.direction == 4)  {s.dir = 3;}
 		}
 	}
 
