@@ -40,15 +40,37 @@ var sketch = function(p) {
 
 	p.init = function () {
 
-		step = p.floor(p.random(20,75));
-		cols = p.width/step;
-		rows = p.height/step;
-		snake_rate = p.floor(p.random(2,7));
-		bgnd_color = 15;
-		bgnd_alpha = 255;
-		gradient_mult = p.floor(p.random(2, 7));
-		highlight_weight = 1;
-		game_over = false;
+		//Initial conditions for computers
+		if (p.windowWidth > p.windowHeight) {
+
+			step = p.floor(p.random(20,75));
+
+			cols = p.width/step;
+			rows = p.height/step;
+
+			snake_rate = p.floor(p.random(2,7));
+			bgnd_color = 15;
+			bgnd_alpha = 255;
+			gradient_mult = p.floor(p.random(2, 7));
+			highlight_weight = 1;
+			game_over = false;
+		}	
+
+		//Iniitial conditions for phones
+		else if (p.windowWidth <= p.windowHeight)
+		{
+			step = p.floor(p.random(5,25));
+
+			cols = p.width/step;
+			rows = p.height/step;
+
+			snake_rate = p.floor(p.random(5,12));
+			bgnd_color = 15;
+			bgnd_alpha = 255;
+			gradient_mult = p.floor(p.random(2, 7));
+			highlight_weight = 1;
+			game_over = false;
+		}
 
 		s = new Snake;
 
@@ -140,6 +162,7 @@ var sketch = function(p) {
 
 	p.windowResized = function() {
       p.resizeCanvas(window.innerWidth, window.innerHeight);
+      p.init();
     }
 
 	//----------------------------------------------------------------
