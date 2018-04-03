@@ -72,7 +72,7 @@ var sketch = function(p) {
 			gradient_mult = p.floor(p.random(2, 7));
 			highlight_weight = 1;
 			game_over = false;
-			line_opacity = 75;
+			line_opacity = 30;
 		}
 
 		s = new Snake;
