@@ -46,7 +46,7 @@ var sketch = function(p) {
 		//Initial conditions for computers
 		if (p.windowWidth > p.windowHeight) {
 
-			step = p.floor(p.random(20,75));
+			step = p.floor(p.random(20, 50));
 
 			cols = p.width/step;
 			rows = p.height/step;
@@ -63,7 +63,7 @@ var sketch = function(p) {
 		//Iniitial conditions for phones
 		else if (p.windowWidth <= p.windowHeight)
 		{
-			step = p.floor(p.random(20,40));
+			step = p.floor(p.random(15,40));
 
 			cols = p.width/step;
 			rows = p.height/step;
