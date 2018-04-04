@@ -18,18 +18,18 @@ if (which_sketch < 0.33) {
 } 
 
 else if (which_sketch >= 0.33 && which_sketch < 0.66) {
-  bodyEl.classList.add('feedbake_snake');
+  bodyEl.classList.add('gradient_snake');
   bodyReady();
 
-  feedbake_snake();
+  gradient_snake();
 } 
 
 else if (which_sketch >= 0.66) 
 {
-  bodyEl.classList.add('maze_generator')
+  bodyEl.classList.add('gradient_snake')
   bodyReady();
 
-  maze_generator();
+  gradient_snake();
 }
 
 function bodyReady() {
