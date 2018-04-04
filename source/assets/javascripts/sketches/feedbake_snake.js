@@ -1,6 +1,7 @@
 //FEEDBAKE SNAKE game for wholesomecircuits.com
 
 import p5 from 'p5';
+import 'hammerjs';
 
 module.exports =  function() {
   var sketch = function(p) {
@@ -23,6 +24,18 @@ module.exports =  function() {
     p.setup = function() {
       p.pixelDensity(1);
       p.createCanvas(window.innerWidth, window.innerHeight);
+
+      // set options to prevent default behaviors for swipe, pinch, etc
+      var options = {
+        preventDefault: true
+      }
+     
+      // document.body registers gestures anywhere on the page
+      var hammer = new Hammer(document.body, options);
+
+      hammer.get('swipe').set({direction: Hammer.DIRECTION_ALL});
+      hammer.on("swipe", p.swiped); //tie event 'swipe' to function 'swiped'
+
       p.init();
 
       buffer = setupBuffer();
@@ -92,6 +105,24 @@ module.exports =  function() {
         }
       }
     }
+    
+    p.swiped = function(event) {
+
+    //First handle, player movement
+    if (s.len > 1) {
+      if (event.direction == 8  && s.dir != 2) {s.dir = 0;}
+      if (event.direction == 16 && s.dir != 0) {s.dir = 2;}
+      if (event.direction == 4  && s.dir != 3) {s.dir = 1;}
+      if (event.direction == 2  && s.dir != 1) {s.dir = 3;}
+    }
+
+    else if (s.len == 1) {
+      if (event.direction == 8)  {s.dir = 0;}
+      if (event.direction == 16) {s.dir = 2;}
+      if (event.direction == 4)  {s.dir = 1;}
+      if (event.direction == 2)  {s.dir = 3;}
+    }
+  }
 
     //0  -  1     - 2    - 3
     //Up -  Right - Down - Left  
