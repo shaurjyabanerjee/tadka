@@ -11,6 +11,8 @@ var sketch = function(p) {
         html = document.documentElement;
     var height = Math.max( body.scrollHeight, body.offsetHeight, 
       html.clientHeight, html.scrollHeight, html.offsetHeight );
+    
+    p.pixelDensity(1);
     p.createCanvas(p.windowWidth, p.windowHeight);
     p.noStroke();
     p.frameRate(60);

@@ -22,6 +22,7 @@ module.exports =  function() {
     var direction = 0;
 
     p.setup = function() {
+      p.pixelDensity(1);
       p.createCanvas(window.innerWidth, window.innerHeight);
       p.angleMode(p.DEGREES);
 

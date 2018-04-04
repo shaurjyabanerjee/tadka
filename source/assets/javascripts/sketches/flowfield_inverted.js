@@ -17,6 +17,7 @@ var sketch = function(p) {
 
 
   p.setup = function () {
+    p.pixelDensity(1);
     p.createCanvas(p.windowWidth, p.windowHeight);
     cols = p.floor(p.width / scl);
     rows = p.floor(p.height / scl);

@@ -23,6 +23,7 @@ var sketch = function(p) {
 	var env1, env2;
 
 	p.setup = function() {
+		p.pixelDensity(1);
 		p.createCanvas(p.windowWidth, p.windowHeight);
 		p.init();
 	}

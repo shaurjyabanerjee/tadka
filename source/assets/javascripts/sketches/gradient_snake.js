@@ -23,6 +23,7 @@ var sketch = function(p) {
 	var line_opacity;
 
 	p.setup = function() {
+		p.pixelDensity(1);
 		p.createCanvas(p.windowWidth, p.windowHeight);
 
 		// set options to prevent default behaviors for swipe, pinch, etc
