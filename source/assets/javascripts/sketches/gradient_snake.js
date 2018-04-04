@@ -35,8 +35,8 @@ var sketch = function(p) {
 		var hammer = new Hammer(document.body, options);
 
 		hammer.get('swipe').set({direction: Hammer.DIRECTION_ALL});
-		hammer.get('swipe').set({threshold: 5});
-		hammer.get('swipe').set({velocity: 0.2});
+		hammer.get('swipe').set({threshold: 3});
+		hammer.get('swipe').set({velocity: 0.1});
 		hammer.on("swipe", p.swiped); //tie event 'swipe' to function 'swiped'
 
 		p.init();

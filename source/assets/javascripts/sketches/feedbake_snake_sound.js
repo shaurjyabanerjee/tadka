@@ -245,7 +245,7 @@ module.exports =  function() {
       this.c_width  = cols * step;
       this.c_height = rows * step;
       this.dir    = 1;
-      this.len    = 1;
+      this.len    = 3;
       this.snake_frame_count = 0;
       this.is_dead = false;
 
