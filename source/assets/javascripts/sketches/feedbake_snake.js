@@ -19,6 +19,7 @@ module.exports =  function() {
     var gradient_mult;
     var highlight_weight;
     var snake_rate;
+    var line_opacity;
 
         
     p.setup = function() {
@@ -42,16 +43,40 @@ module.exports =  function() {
     }
 
     p.init = function() {
+
+      //Initial conditions for computers
+    if (p.windowWidth > p.windowHeight) {
+
       step = p.floor(p.random(20,75));
+
       cols = p.width/step;
       rows = p.height/step;
+
       snake_rate = p.floor(p.random(2,7));
       bgnd_color = 15;
-      bgnd_alpha = 75;
+      bgnd_alpha = 255;
       gradient_mult = p.floor(p.random(2, 7));
       highlight_weight = 1;
       game_over = false;
+      line_opacity = 10;
+    } 
 
+    //Iniitial conditions for phones
+    else if (p.windowWidth <= p.windowHeight)
+    {
+      step = p.floor(p.random(20,40));
+
+      cols = p.width/step;
+      rows = p.height/step;
+
+      snake_rate = p.floor(p.random(3,12));
+      bgnd_color = 15;
+      bgnd_alpha = 255;
+      gradient_mult = p.floor(p.random(2, 7));
+      highlight_weight = 1;
+      game_over = false;
+      line_opacity = 30;
+    }
       s = new Snake;
 
       p.noFill();
@@ -105,7 +130,7 @@ module.exports =  function() {
         }
       }
     }
-    
+
     p.swiped = function(event) {
 
     //First handle, player movement
