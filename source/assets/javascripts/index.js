@@ -2,17 +2,17 @@
 
 // Javascripts
 
-const goop = require('./sketches/gradient_snake');
-const border_walker = require('./sketches/gradient_snake');
+const goop = require('./sketches/maze_generator');
+const border_walker = require('./sketches/maze_generator');
 var bodyEl = document.getElementsByTagName('body')[0];
 
 if( Math.random() > 0.5) {
-  bodyEl.classList.add('gradient_snake');
+  bodyEl.classList.add('maze_generator');
   bodyReady();
 
 	goop()
 } else {
-  bodyEl.classList.add('gradient_snake')
+  bodyEl.classList.add('maze_generator')
   bodyReady();
 
 	border_walker()
