@@ -58,7 +58,7 @@ var sketch = function(p) {
 			gradient_mult = p.floor(p.random(2, 7));
 			highlight_weight = 1;
 			game_over = false;
-			line_opacity = 10;
+			line_opacity = 1;
 		}	
 
 		//Iniitial conditions for phones
@@ -75,7 +75,7 @@ var sketch = function(p) {
 			gradient_mult = p.floor(p.random(2, 7));
 			highlight_weight = 1;
 			game_over = false;
-			line_opacity = 30;
+			line_opacity = 10;
 		}
 
 		s = new Snake;
@@ -187,9 +187,9 @@ var sketch = function(p) {
 		this.is_dead = false;
 
 		//Variables to modulate color
-		this.r_mult = p.random(0.001, 0.01);
-		this.g_mult = p.random(0.001, 0.01);
-		this.b_mult = p.random(0.001, 0.01);
+		this.r_mult = p.random(0.005, 0.02);
+		this.g_mult = p.random(0.005, 0.02);
+		this.b_mult = p.random(0.005, 0.02);
 
 		this.inc1 = 0.01;
 		
