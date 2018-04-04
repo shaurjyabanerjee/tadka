@@ -20,6 +20,8 @@ module.exports =  function() {
     var highlight_weight;
     var snake_rate;
     var line_opacity;
+    var trail_opacity;
+    var p_offset;
 
         
     p.setup = function() {
@@ -59,6 +61,8 @@ module.exports =  function() {
       highlight_weight = 1;
       game_over = false;
       line_opacity = 10;
+      trail_opacity = 100;
+      p_offset = 75;
     } 
 
     //Iniitial conditions for phones
@@ -76,6 +80,8 @@ module.exports =  function() {
       highlight_weight = 1;
       game_over = false;
       line_opacity = 30;
+      trail_opacity = 100;
+      p_offset = 75;
     }
       s = new Snake;
 
@@ -87,10 +93,10 @@ module.exports =  function() {
     p.draw = function() {
       p.background(51);
 
-      let translateX = ((p.mouseX - p.width/2) + 10) * 0.00024;
-      let translateY = ((p.mouseY - p.height/2) + 10) * 0.00024;
-      let scaleX = ((p.mouseX+200) - p.width/2) * 0.00064;
-      let scaleY = ((p.mouseY+200) - p.height/2) * 0.00064;
+      let translateX = (((p.mouseX + p_offset) - p.width/2) + 10) * 0.00024;
+      let translateY = (((p.mouseY + p_offset) - p.height/2) + 10) * 0.00024;
+      let scaleX = (((p.mouseX + p_offset)+200) - p.width/2) * 0.00064;
+      let scaleY = (((p.mouseY + p_offset)+200) - p.height/2) * 0.00064;
 
       melt(translateX, translateY, scaleX, scaleY, 0.001);
 
@@ -189,9 +195,9 @@ module.exports =  function() {
       this.is_dead = false;
 
       //Variables to modulate color
-      this.r_mult = p.random(0.001, 0.01);
-      this.g_mult = p.random(0.001, 0.01);
-      this.b_mult = p.random(0.001, 0.01);
+      this.r_mult = p.random(0.005, 0.05);
+      this.g_mult = p.random(0.005, 0.05);
+      this.b_mult = p.random(0.005, 0.05);
 
       this.inc1 = 0.01;
       
@@ -251,7 +257,8 @@ module.exports =  function() {
           if (this.is_dead == false) {
             buffer.fill (p.map(p.sin(p.frameCount * this.r_mult),-1,1,10,245),
                          p.map(p.sin(p.frameCount * this.g_mult),-1,1,10,245),
-                         p.map(p.sin(p.frameCount * this.b_mult),-1,1,10,245));
+                         p.map(p.sin(p.frameCount * this.b_mult),-1,1,10,245),
+                         trail_opacity);
           }
         
           buffer.rect(player_positions_x[this.snake_frame_count-i]*step,
@@ -304,7 +311,7 @@ module.exports =  function() {
           buffer.fill (p.map(p.sin(p.frameCount * this.r_mult),-1,1,10,245),
                        p.map(p.sin(p.frameCount * this.g_mult),-1,1,10,245),
                        p.map(p.sin(p.frameCount * this.b_mult),-1,1,10,245),
-                       50);
+                       trail_opacity);
         }
         
         buffer.rect(this.x_pos*step, this.y_pos*step, step, step); 

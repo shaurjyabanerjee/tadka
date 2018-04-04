@@ -11,25 +11,25 @@ var bodyEl = document.getElementsByTagName('body')[0];
 var which_sketch = Math.random();
 
 if (which_sketch < 0.33) {
-  bodyEl.classList.add('gradient_snake');
+  bodyEl.classList.add('feedbake_snake');
   bodyReady();
 
-  gradient_snake();
+  feedbake_snake();
 } 
 
 else if (which_sketch >= 0.33 && which_sketch < 0.66) {
-  bodyEl.classList.add('gradient_snake');
+  bodyEl.classList.add('feedbake_snake');
   bodyReady();
 
-  gradient_snake();
+  feedbake_snake();
 } 
 
 else if (which_sketch >= 0.66) 
 {
-  bodyEl.classList.add('gradient_snake')
+  bodyEl.classList.add('feedbake_snake')
   bodyReady();
 
-  gradient_snake();
+  feedbake_snake();
 }
 
 function bodyReady() {
