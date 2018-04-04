@@ -52,7 +52,7 @@ var sketch = function(p) {
 			cols = p.width/step;
 			rows = p.height/step;
 
-			snake_rate = p.floor(p.random(2,7));
+			snake_rate = p.floor(p.random(2,6));
 			bgnd_color = 15;
 			bgnd_alpha = 255;
 			gradient_mult = p.floor(p.random(2, 7));
@@ -69,7 +69,7 @@ var sketch = function(p) {
 			cols = p.width/step;
 			rows = p.height/step;
 
-			snake_rate = p.floor(p.random(3,12));
+			snake_rate = p.floor(p.random(3,10));
 			bgnd_color = 15;
 			bgnd_alpha = 255;
 			gradient_mult = p.floor(p.random(2, 7));
@@ -115,7 +115,7 @@ var sketch = function(p) {
 					   p.map(p.sin((i/gradient_mult) + s.inc1 * s.b_mult),-1,1,10,255),
 					   190);
 
-				s.inc1 += 0.01;
+				s.inc1 += 0.0085;
 				p.rect(i*step, j*step, step, step);
 			}
 		}
