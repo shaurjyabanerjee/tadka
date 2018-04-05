@@ -11,10 +11,10 @@ var bodyEl = document.getElementsByTagName('body')[0];
 var which_sketch = Math.random();
 
 if (which_sketch < 0.33) {
-  bodyEl.classList.add('feedbake_snake');
+  bodyEl.classList.add('gradient_snake');
   bodyReady();
 
-  feedbake_snake();
+  gradient_snake();
 } 
 
 else if (which_sketch >= 0.33 && which_sketch < 0.66) {
@@ -26,10 +26,10 @@ else if (which_sketch >= 0.33 && which_sketch < 0.66) {
 
 else if (which_sketch >= 0.66) 
 {
-  bodyEl.classList.add('feedbake_snake')
+  bodyEl.classList.add('maze_generator')
   bodyReady();
 
-  feedbake_snake();
+  maze_generator();
 }
 
 function bodyReady() {
