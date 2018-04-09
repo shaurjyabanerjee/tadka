@@ -1,3 +1,19 @@
+.projects {
+  main {
+    margin: 0;
+  }
+
+  .project__thumbnails {
+    padding-top: 0;
+  }
+}
+
+.games {
+  .project__meta {
+    display: none;
+  }
+}
+
 .project {
 	margin: 50px;
 }
@@ -28,7 +44,7 @@
 }
 
 .project__thumbnails {
-  grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
   grid-gap: 0px;
 }
 

@@ -11,6 +11,6 @@
     %title= current_page.data.title || "Wholesome Circuits"
     = stylesheet_link_tag 'global', 'project', async: true
     = javascript_include_tag 'global-bundle', 'project-bundle', async: true
-  %body{class: page_classes}
+  %body.projects{class: page_classes}
     %main{role: "main"}
       = yield
