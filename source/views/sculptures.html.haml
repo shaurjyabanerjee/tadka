@@ -1,0 +1,15 @@
+---
+title: Wholesome Circuits | Sculpture
+layout: projects
+---
+
+%div.project__thumbnails
+  - page_articles.each_with_index do |article, i|
+    - if article.data.category == 'sculptures'
+      - if article.data.featured_imgs.present?
+        - article.data.featured_imgs.each do |img|
+          = link_to article, class: 'project__thumbnail' do
+            = tag :img, src: img, class: 'project__image'
+      - else
+        = link_to article, class: 'project__thumbnail' do
+          = tag :img, src: article.data.featured_img, class: 'project__image'

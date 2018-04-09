@@ -20,18 +20,23 @@
 	width: 100%;
 }
 
-.project__image-container {
+.project__image-container, .project__thumbnails {
 	padding-top: 30px;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
 	grid-gap: 30px;
 }
 
-.project__thumbnail-container {
-	padding-top: 30px;
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(21rem, 2fr));
-	grid-gap: 0px;
+.project__thumbnails {
+  grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+  grid-gap: 0px;
+}
+
+.project__thumbnail {
+  border: 20px solid white;
+  .project__image {
+    height: 100%;
+  }
 }
 
 .project__image {
