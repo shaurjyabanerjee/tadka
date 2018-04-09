@@ -4,34 +4,42 @@ module.exports =  function() {
 var sketch = function(p) {
 
   var walkers = [];
+  var num_walkers;
 
   p.setup = function() {
     var body = document.body,
         html = document.documentElement;
     var height = Math.max( body.scrollHeight, body.offsetHeight, 
       html.clientHeight, html.scrollHeight, html.offsetHeight );
+    
+    p.pixelDensity(1);
     p.createCanvas(p.windowWidth, p.windowHeight);
     p.noStroke();
     p.frameRate(60);
+    num_walkers = p.floor(p.random(1, 30));
 
-    for (var i = 0; i<4; i++) {
+    for (var i = 0; i<num_walkers; i++) {
       walkers[i] = new Walker(50, 2);
     }
   };
 
   
   p.draw = function() {
-    for (var i = 0; i<4; i++) {
+    for (var i = 0; i<num_walkers; i++) {
       walkers[i].update();
       walkers[i].display();
     }
   };
 
+  p.windowResized = function() {
+      p.resizeCanvas(window.innerWidth, window.innerHeight);
+  }
+
   function Walker(m, s) {
     
     this.margin = m;
-    this.x_pos  = m/2;
-    this.y_pos  = m/2;
+    this.x_pos  = p.random(0 , m);
+    this.y_pos  = p.random(0 , m);
     this.step_size = s;
 
     this.r_mult = p.random(0.001, 0.05);

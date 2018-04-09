@@ -7,6 +7,7 @@
     "precommit": "lint-staged"
   },
   "dependencies": {
+    "hammerjs": "^2.0.8",
     "offline-plugin": "^4.8.4",
     "p5": "^0.6.0",
     "webpack": "^3.5.6"

@@ -22,6 +22,7 @@ module.exports =  function() {
     var direction = 0;
 
     p.setup = function() {
+      p.pixelDensity(1);
       p.createCanvas(window.innerWidth, window.innerHeight);
       p.angleMode(p.DEGREES);
 
@@ -64,6 +65,10 @@ module.exports =  function() {
 
       n = p.map(p.sin(p.frameCount * 0.1), -1, 1, 0, p.max(p.width, p.height));
       start += 5;
+    }
+
+    p.windowResized = function() {
+      p.resizeCanvas(window.innerWidth, window.innerHeight);
     }
 
     p.linear_n = function() {

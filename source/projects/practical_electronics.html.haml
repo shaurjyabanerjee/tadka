@@ -7,6 +7,10 @@ date: 2018-04-20 04:20 PDT
 
 %iframe.project__video{:allow => "autoplay; encrypted-media", :allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/lO0RS7WPfiA?rel=0&controls=0&showinfo=0", :width => "560"}
 
-%p.project__para-1 
+%div.project__image-container
+	- 1.upto(9) do |index|
+		= tag :img, src: "/assets/images/projects/p_electronics/p_electronics#{index}.jpg",class:'project__image'
 
-%p.project__para-2 
+%p.project__para-1 Practical Electronics for The Curious Artist was a 5 day intensive workshop taught at CalArts by Mike Leisz and Shaurjya Banerjee in January, 2018. It was attended by 25 students from programs across the institute. 
+
+%p.project__para-2 The goal of the class was to provide a foundational understanding of electronics and to introduce students to building circuits in an fun and engaging way. During this time students build their own audio and video synthesizer circuits, and learned how to read and write schematics.

@@ -2,20 +2,34 @@
 
 // Javascripts
 
-const goop = require('./sketches/maze_generator');
-const border_walker = require('./sketches/maze_generator');
+const gradient_snake = require('./sketches/gradient_snake');
+const feedbake_snake = require('./sketches/feedbake_snake');
+const maze_generator = require('./sketches/maze_generator');
+
 var bodyEl = document.getElementsByTagName('body')[0];
 
-if( Math.random() > 0.5) {
-  bodyEl.classList.add('maze_generator');
+var which_sketch = Math.random();
+
+if (which_sketch < 0.33) {
+  bodyEl.classList.add('gradient_snake');
   bodyReady();
 
-	goop()
-} else {
+  gradient_snake();
+} 
+
+else if (which_sketch >= 0.33 && which_sketch < 0.66) {
+  bodyEl.classList.add('feedbake_snake');
+  bodyReady();
+
+  feedbake_snake();
+} 
+
+else if (which_sketch >= 0.66) 
+{
   bodyEl.classList.add('maze_generator')
   bodyReady();
 
-	border_walker()
+  maze_generator();
 }
 
 function bodyReady() {

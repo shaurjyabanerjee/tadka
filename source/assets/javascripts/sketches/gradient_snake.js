@@ -2,9 +2,12 @@
 
 
 import p5 from 'p5';
+import 'hammerjs';
 
 module.exports =  function() {
 var sketch = function(p) {
+
+	var msg = "swipe";
 
 	var step;
 	var cols, rows;
@@ -17,22 +20,63 @@ var sketch = function(p) {
 	var gradient_mult;
 	var highlight_weight;
 	var snake_rate;
+	var line_opacity;
 
 	p.setup = function() {
+		p.pixelDensity(1);
 		p.createCanvas(p.windowWidth, p.windowHeight);
+
+		// set options to prevent default behaviors for swipe, pinch, etc
+		var options = {
+			preventDefault: true
+		}
+		 
+		// document.body registers gestures anywhere on the page
+		var hammer = new Hammer(document.body, options);
+
+		hammer.get('swipe').set({direction: Hammer.DIRECTION_ALL});
+		hammer.get('swipe').set({threshold: 3});
+		hammer.get('swipe').set({velocity: 0.1});
+		hammer.on("swipe", p.swiped); //tie event 'swipe' to function 'swiped'
+
 		p.init();
 	}
 
 	p.init = function () {
-		step = p.floor(p.random(20,75));
-		cols = p.width/step;
-		rows = p.height/step;
-		snake_rate = p.floor(p.random(2,7));
-		bgnd_color = 15;
-		bgnd_alpha = 255;
-		gradient_mult = p.floor(p.random(2, 7));
-		highlight_weight = 1;
-		game_over = false;
+
+		//Initial conditions for computers
+		if (p.windowWidth > p.windowHeight) {
+
+			step = p.floor(p.random(20, 50));
+
+			cols = p.width/step;
+			rows = p.height/step;
+
+			snake_rate = p.floor(p.random(2,6));
+			bgnd_color = 15;
+			bgnd_alpha = 255;
+			gradient_mult = p.floor(p.random(2, 7));
+			highlight_weight = 1;
+			game_over = false;
+			line_opacity = 1;
+		}	
+
+		//Iniitial conditions for phones
+		else if (p.windowWidth <= p.windowHeight)
+		{
+			step = p.floor(p.random(15,40));
+
+			cols = p.width/step;
+			rows = p.height/step;
+
+			snake_rate = p.floor(p.random(3,10));
+			bgnd_color = 15;
+			bgnd_alpha = 255;
+			gradient_mult = p.floor(p.random(2, 7));
+			highlight_weight = 1;
+			game_over = false;
+			line_opacity = 10;
+		}
 
 		s = new Snake;
 
@@ -48,7 +92,7 @@ var sketch = function(p) {
 		//frame rate than the rest of the sketch
 		if (p.frameCount%snake_rate == 0) {
 			p.background(bgnd_color, bgnd_alpha);
-		  p.draw_grid();
+		    p.draw_grid();
 			s.update();
 			s.display();
 		} 
@@ -62,7 +106,7 @@ var sketch = function(p) {
 				p.stroke(p.map(p.sin((i/gradient_mult) + s.inc1 * s.r_mult),-1,1,255,10),
 					     p.map(p.sin((i/gradient_mult) + s.inc1 * s.g_mult),-1,1,255,10),
 					     p.map(p.sin((i/gradient_mult) + s.inc1 * s.b_mult),-1,1,255,10),
-					     p.map(p.sin((i/gradient_mult) + s.inc1 * s.b_mult),-1,1,0,1));
+					     line_opacity);
 
 				//p.noStroke();
 
@@ -71,9 +115,28 @@ var sketch = function(p) {
 					   p.map(p.sin((i/gradient_mult) + s.inc1 * s.b_mult),-1,1,10,255),
 					   190);
 
-				s.inc1 += 0.01;
+				s.inc1 += 0.0085;
 				p.rect(i*step, j*step, step, step);
 			}
+		}
+	}
+
+
+	p.swiped = function(event) {
+
+		//First handle, player movement
+		if (s.len > 1) {
+			if (event.direction == 8  && s.dir != 2) {s.dir = 0;}
+			if (event.direction == 16 && s.dir != 0) {s.dir = 2;}
+			if (event.direction == 4  && s.dir != 3) {s.dir = 1;}
+			if (event.direction == 2  && s.dir != 1) {s.dir = 3;}
+		}
+
+		else if (s.len == 1) {
+			if (event.direction == 8)  {s.dir = 0;}
+			if (event.direction == 16) {s.dir = 2;}
+			if (event.direction == 4)  {s.dir = 1;}
+			if (event.direction == 2)  {s.dir = 3;}
 		}
 	}
 
@@ -103,6 +166,11 @@ var sketch = function(p) {
 		}
 	}
 
+	p.windowResized = function() {
+      p.resizeCanvas(window.innerWidth, window.innerHeight);
+      p.init();
+    }
+
 	//----------------------------------------------------------------
 
 	function Snake() {
@@ -114,14 +182,14 @@ var sketch = function(p) {
 		this.c_width  = cols * step;
 		this.c_height = rows * step;
 		this.dir    = 1;
-		this.len    = 1;
+		this.len    = 3;
 		this.snake_frame_count = 0;
 		this.is_dead = false;
 
 		//Variables to modulate color
-		this.r_mult = p.random(0.001, 0.01);
-		this.g_mult = p.random(0.001, 0.01);
-		this.b_mult = p.random(0.001, 0.01);
+		this.r_mult = p.random(0.005, 0.02);
+		this.g_mult = p.random(0.005, 0.02);
+		this.b_mult = p.random(0.005, 0.02);
 
 		this.inc1 = 0.01;
 		
@@ -180,7 +248,7 @@ var sketch = function(p) {
 
 				if (this.is_dead == false) {
 					p.fill (p.map(p.sin(p.frameCount * this.r_mult),-1,1,10,245),
-					 	      p.map(p.sin(p.frameCount * this.g_mult),-1,1,10,245),
+					 	    p.map(p.sin(p.frameCount * this.g_mult),-1,1,10,245),
 					  	    p.map(p.sin(p.frameCount * this.b_mult),-1,1,10,245));
 				}
 			
@@ -232,8 +300,8 @@ var sketch = function(p) {
 			//p.Fill with this color if you are still alive
 			if (this.is_dead == false) {
 				p.fill (p.map(p.sin(p.frameCount * this.r_mult),-1,1,10,245),
-					      p.map(p.sin(p.frameCount * this.g_mult),-1,1,10,245),
-					      p.map(p.sin(p.frameCount * this.b_mult),-1,1,10,245));
+					    p.map(p.sin(p.frameCount * this.g_mult),-1,1,10,245),
+					    p.map(p.sin(p.frameCount * this.b_mult),-1,1,10,245));
 			}
 			
 			p.rect(this.x_pos*step, this.y_pos*step, step, step);	

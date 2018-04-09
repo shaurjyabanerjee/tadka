@@ -24,7 +24,7 @@ main {
 }
 
 canvas {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: -1;
@@ -42,10 +42,22 @@ canvas {
   color: white;
 }
 
+.feedbake_snake, .feedbake_snake_sound {
+  color: white;
+}
+
+.grid_goop {
+  color: black;
+}
+
 .phyllotaxis {
   color: white;
 }
 
-.border {
+.border, .flowfield {
   color: black;
+}
+
+.border_inverted, .flowfield_inverted{
+  color: white;
 }

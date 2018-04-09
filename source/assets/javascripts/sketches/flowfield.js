@@ -17,6 +17,7 @@ var sketch = function(p) {
 
 
   p.setup = function () {
+    p.pixelDensity(1);
     p.createCanvas(p.windowWidth, p.windowHeight);
     cols = p.floor(p.width / scl);
     rows = p.floor(p.height / scl);
@@ -111,6 +112,10 @@ var sketch = function(p) {
       color_vals[3] = 25; color_vals[4] = 25; color_vals[5] = 112;
       console.log("Deep Sky Blue and Midnight Blue");
     }
+  }
+
+  p.windowResized = function() {
+    p.resizeCanvas(window.innerWidth, window.innerHeight);
   }
 
   function Particle () {

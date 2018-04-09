@@ -6,27 +6,27 @@
 
 
 import p5 from 'p5';
-import "p5/lib/addons/p5.sound";
+import 'hammerjs';
 
 module.exports =  function() {
   var sketch = function(p) {
 
     //Counter variables to keep track
     //of oscillating gradient
-    var inc1 = 0.01;
-    var inc2 = 0.01;
+    var inc1;
+    var inc2;
 
     //Step speed variables to adjust 
     //gradient 'rate'
-    var step1 = 0.075;
-    var step2 = 0.50;
+    var step1;
+    var step2;
 
     var cols, rows;
     var w;
     var grid = [];
     var total_cells;
-    var visited_cells = 0;
-    var is_maze_generated = false;
+    var visited_cells;
+    var is_maze_generated;
 
     var current;
     var stack = [];
@@ -37,40 +37,91 @@ module.exports =  function() {
     var player_x, player_y;
     var player_step;
     var move_count;
-    var game_x = 0;
-    var game_y = 0;
-    var game_over = false;
+    var game_x;
+    var game_y;
+    var game_over;
 
     var player_positions_x = [];
     var player_positions_y = [];
-
-
-    var osc1;
-    var osc2;
-    var env;
 
 
     p.setup = function() {
       p.pixelDensity(1);
       p.createCanvas(window.innerWidth, window.innerHeight);
 
-      w_mult = p.floor(p.random(8,17));
-      w = w_mult * 5;
+      // set options to prevent default behaviors for swipe, pinch, etc
+      var options = {
+        preventDefault: true
+      }
+     
+    // document.body registers gestures anywhere on the page
+    var hammer = new Hammer(document.body, options);
 
-      cols = p.floor(p.width/w);
-      rows = p.floor(p.height/w);
+    hammer.get('swipe').set({direction: Hammer.DIRECTION_ALL});
+    hammer.on("swipe", p.swiped); //tie event 'swipe' to function 'swiped'
+    p.init();  
+    }
 
-      total_cells = rows*cols;
+    p.init = function() {
 
-      r_mult = p.random(0.01, 0.1);
-      g_mult = p.random(0.01, 0.1);
-      b_mult = p.random(0.01, 0.1);
-      p_mult = p.random(0.005, 0.05);
+      //Counter variables to keep track
+      //of oscillating gradient
+      inc1 = 0.01;
+      inc2 = 0.01;
 
-      player_x = w/2;
-      player_y = w/2;
-      player_step = w;
-      move_count = 0;
+      //Step speed variables to adjust 
+      //gradient 'rate'
+      step1 = 0.075;
+      step2 = 0.50;
+
+      visited_cells = 0;
+      is_maze_generated = false;
+
+      game_x = 0;
+      game_y = 0;
+      game_over = false;
+
+      //Initial conditions for computers
+      if (p.windowWidth > p.windowHeight) {
+        w_mult = p.floor(p.random(8,17));
+        w = w_mult * 5;
+
+        cols = p.floor(p.width/w);
+        rows = p.floor(p.height/w);
+
+        total_cells = rows*cols;
+
+        r_mult = p.random(0.01, 0.1);
+        g_mult = p.random(0.01, 0.1);
+        b_mult = p.random(0.01, 0.1);
+        p_mult = p.random(0.005, 0.05);
+
+        player_x = w/2;
+        player_y = w/2;
+        player_step = w;
+        move_count = 0;
+      }
+
+      else if (p.windowWidth <= p.windowHeight) {
+        w_mult = p.floor(p.random(2,10));
+        w = w_mult * 5;
+
+        cols = p.floor(p.width/w);
+        rows = p.floor(p.height/w);
+
+        total_cells = rows*cols;
+
+        r_mult = p.random(0.01, 0.1);
+        g_mult = p.random(0.01, 0.1);
+        b_mult = p.random(0.01, 0.1);
+        p_mult = p.random(0.005, 0.05);
+
+        player_x = w/2;
+        player_y = w/2;
+        player_step = w;
+        move_count = 0;
+
+      }
 
       //Instantiate all our cell objects
       for (var   j = 0; j < rows; j++) {
@@ -80,28 +131,6 @@ module.exports =  function() {
         }
       }
       current = grid[0];
-
-      osc1 = new p5.Oscillator();
-      osc1.setType('square');
-      osc1.freq(110);
-      osc1.amp(0.5);
-      osc1.start();
-
-      osc2 = new p5.Oscillator();
-      osc2.setType('square');
-      osc2.freq(440);
-      osc2.amp(1000);
-      osc2.start();
-
-      env = new p5.Env();
-      env.setADSR(0.001, 0.15, 0, 0.5);
-      env.setRange(1, 0);
-
-      osc1.amp(env);
-      osc2.amp(env);
-
-      osc2.disconnect();
-      osc1.freq(osc2);
     }
 
     p.draw = function() {
@@ -237,6 +266,44 @@ module.exports =  function() {
         b.walls[0] = false;
       }
     }
+
+    p.windowResized = function() {
+      p.resizeCanvas(window.innerWidth, window.innerHeight);
+      p.init();
+    }
+
+    p.swiped = function(event) {
+      //Handle player location tracking if the maze has
+      //already been generated
+      if (is_maze_generated) {
+        //Log all of the player's visited spaces to display a trail
+        player_positions_x[move_count] = player_x;
+        player_positions_y[move_count] = player_y;
+
+        if(event.direction == 2 && player_x > w/2 && grid[p.xy_convertor(game_x, game_y)].walls[3] == false) {
+        //if(event.direction == 2 && player_x > w/2) {
+          player_x -= player_step;
+          game_x -= 1;
+        }
+        if(event.direction == 4 && player_x < (w/2 + ((cols-1)*w)) && grid[p.xy_convertor(game_x, game_y)].walls[1] == false) {
+        //if(event.direction == 4 && player_x < (w/2 + ((cols-1)*w))) {
+          player_x += player_step;
+          game_x += 1;
+        }
+        if(event.direction == 8 && player_y > w/2 && grid[p.xy_convertor(game_x, game_y)].walls[0] == false) {
+        //if(event.direction == 8 && player_y > w/2) {
+          player_y -= player_step;
+          game_y -= 1;
+        }
+        if(event.direction == 16 && player_y < (w/2 + ((rows-1)*w)) && grid[p.xy_convertor(game_x, game_y)].walls[2] == false ) {
+        //if(event.direction == 16 && player_y < (w/2 + ((rows-1)*w))) {
+          player_y += player_step;
+          game_y += 1;
+        }
+      }
+      move_count ++;
+    }
+
 
     p.keyReleased = function() {
 
