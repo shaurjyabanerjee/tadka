@@ -5,6 +5,7 @@
 
   .project__thumbnails {
     padding-top: 0;
+    padding-bottom: 0;
   }
 }
 
@@ -44,14 +45,18 @@
 }
 
 .project__thumbnails {
-  grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
   grid-gap: 0px;
 }
 
+//
 .project__thumbnail {
-  border: 20px solid white;
+  //This border is applied around every image on our thumbnails page
+  border: 25px solid white;
   .project__image {
     height: 100%;
+    width: 100%;
+    margin-bottom: 0;
   }
 }
 
