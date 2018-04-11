@@ -9,6 +9,7 @@
   }
 }
 
+//Do not display any html on our game pages
 .games {
   .project__meta {
     display: none;
@@ -51,7 +52,7 @@
 
 //
 .project__thumbnail {
-  //This border is applied around every image on our thumbnails page
+  //This border is applied around every image on our sculptures page
   border: 25px solid white;
   .project__image {
     height: 100%;

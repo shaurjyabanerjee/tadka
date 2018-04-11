@@ -73,8 +73,6 @@ else {
   }
 }
 
-
-
 function bodyReady() {
   bodyEl.classList.remove('unready');
 }
