@@ -11,4 +11,12 @@ featured_imgs: ["/assets/images/thumbnails/sculptures/apvcam2.png", "/assets/ima
 
 %p.project__para-2 APVFeedBakE attempts at repurposing antiquated video playback and capture devices to pose an inquiry into the nature of human sight, memory and perception and the idea of autonomy in the artmaking process.
 
-%p.project__para-3 APVFeedBakExxx repurposes audio ampilifiers and hand wound electro magnets to manipulate Cathode Ray Tube monitors, to illustrate their inner workings. Additionally, all Cathode Ray Tube monitors have been re-housed such that the user may see their internals.
+%p.project__para-3 APVFeedBakE repurposes audio ampilifiers and hand wound electro magnets to manipulate Cathode Ray Tube monitors, to illustrate their inner workings. Additionally, all Cathode Ray Tube monitors have been re-housed such that the user may see their internals.
+
+%div.project__image-container
+	- 1.upto(9) do |index|
+		= tag :img, src: "/assets/images/projects/apvcam/apvcam#{index}.jpg",class:'project__image'
+
+%div.project__image-container
+	- 1.upto(12) do |index|
+		= tag :img, src: "/assets/images/projects/apvtv/apvtv#{index}.jpg",class:'project__image'
