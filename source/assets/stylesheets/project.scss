@@ -37,6 +37,7 @@
 	width: 100%;
 }
 
+//Format our project page image grids in here
 .project__image-container, .project__thumbnails {
 	padding-top: 30px;
 	display: grid;
@@ -63,12 +64,18 @@
 	max-width: 100%;
 }
 
+//Format single images to be at full width
+.single__image {
+  max-width: 100%;
+}
+
 .project__para-1 {
 	margin-top: 32px;
 }
 
+//Color WARNINGS in red
 .warning {
-  color: red;
+  color: rgb(225,72,44);
 }
 
 //Fixes canvas so it does not scroll
@@ -77,6 +84,3 @@ canvas {
 	top: 0;
 	left: 0;
 }
-
-
-// Specific project styles

@@ -13,25 +13,29 @@ body {
   font-family: 'Rubik Mono One';
   font-size: 0.85rem;
 
-  // For every size bigger than a tablet
+  //For every size bigger than a tablet
   @media #{$break-sm-plus} {
     font-size: 1.4rem;
   }
 }
 
 h1, h2, h3, h4, h5, time {
+  //Default CSS for small phone screens
 	font-family: 'Rubik Mono One';
   font-size: 1.8rem;
 
+  //For every size bigger than a tablet
   @media #{$break-sm-plus} {
     font-size: 2.6rem;
   }
 }
 
-// Pixel font
+//Assign pages that will use pixel fonts
 body.electronics_apvfeedbake_howto {
+  //Default CSS for small phone screens
   font-family: 'Vcr Osd Mono';
 
+  //For every size bigger than a tablet
   h1, h2, h3, h4, h5, time {
     font-family: 'Vcr Osd Mono';
   }
