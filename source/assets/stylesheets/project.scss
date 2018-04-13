@@ -50,10 +50,9 @@
   grid-gap: 0px;
 }
 
-//
 .project__thumbnail {
-  //This border is applied around every image on our sculptures page
-  border: 25px solid white;
+  height: 100%;
+
   .project__image {
     height: 100%;
     width: 100%;
