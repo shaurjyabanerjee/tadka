@@ -71,6 +71,13 @@
   padding-bottom: 10px;
 }
 
+//Format links to be in a different color
+.external_link {
+  .external_link.hover {
+    color: rgb(225,72,44);
+  }
+}
+
 .project__para-1 {
 	margin-top: 32px;
 }
