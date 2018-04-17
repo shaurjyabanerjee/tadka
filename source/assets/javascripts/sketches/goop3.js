@@ -1,7 +1,7 @@
-//Goop 1 - Grid of rectangles moving around in feedback
+//Goop 3 - Random Points Drawn into feedback
+//with procedural selection of color palettes
 //Shaurjya Banerjee 2018
 //Using canvas feedback framework by Mike Leisz 2018
-
 
 //-----------------------------------------------------------------
 
@@ -13,10 +13,12 @@ var sketch = function(p) {
   var num_steps = 42;
   var step_size;
 
-  var r_mult;
-  var g_mult;
-  var b_mult;
-  var a_mult;
+  var r_max;
+  var g_max;
+  var b_max;
+  var num_points;
+
+  var which_color;
 
   var x_mult;
   var y_mult;
@@ -31,18 +33,13 @@ var sketch = function(p) {
   p.setup = function() {
     p.pixelDensity(1);
     p.createCanvas(p.windowWidth, p.windowHeight);
+    num_points = p.floor(p.random(5, 50));
+    p.choose_color();
 
     buffer = setupBuffer();
 
     step_size = p.width/num_steps;
     p.noStroke();
-
-    r_mult = p.random(0.001, 0.1);
-    g_mult = p.random(0.001, 0.1);
-    b_mult = p.random(0.001, 0.1);
-    a_mult = p.random(0.001, 0.1);
-    x_mult = p.random(0.001, 0.1);
-    y_mult = p.random(0.001, 0.1);
   };
 
   p.draw = function() {
@@ -57,35 +54,41 @@ var sketch = function(p) {
 
     buffer.noStroke();
 
-    p.gradient_grid();
-
+    p.seed_points();
     p.image(buffer, 0, 0);
   };
 
-  p.gradient_grid = function() {
-    var y_offset = 0;
-    color_inc = 0;
+  p.seed_points = function() {
+    for (var i = 0; i < num_points; i++) {
 
-    for(let j = 0; j<num_steps; j++) {
-      var x_offset = 0;
-      for(let i = 0; i<num_steps; i++) {
-
-        buffer.fill(p.map(p.sin(color_inc+other_inc * r_mult), -1, 1, 0, 250),
-          p.map(p.sin(color_inc+other_inc * g_mult), -1, 1, 0, 250),
-          p.map(p.sin(color_inc+other_inc * b_mult), -1, 1, 0, 250),
-          p.map(p.sin(color_inc+other_inc * a_mult), -1, 1, 10, 250));
-
-        buffer.rect (i*step_size + p.map(p.cos(p.frameCount * x_mult),-1, 1, 0, step_size),
-          j* step_size + p.map(p.sin(p.frameCount * y_mult),-1, 1, 0, step_size),
-          p.map(p.mouseX, 0, p.width,  1, 16),
-          p.map(p.mouseY, 0, p.height, 1, 16));
-
-        color_inc += 0.001;
-        x_offset += inc;
-      }
-      y_offset += inc;
-      other_inc += 0.01;
+      buffer.stroke(p.random(r_max), p.random(g_max), p.random(b_max), 10);
+      buffer.point(p.random(p.width), p.random(p.height));
     }
+  }
+
+  //This function determines the start colors for our seed points
+  p.choose_color = function() {
+    which_color = p.ceil(p.random(0, 5));
+    //which_color = 5;
+
+    //Reds and blues with this color seed
+    if (which_color == 1) {r_max = 255; g_max = 102; b_max = 204;}
+
+    //Oranges, greens and yellows with this color seed
+    else if (which_color == 2) {r_max = 255; g_max = 154; b_max = 40;}
+
+    //Blues and greens with this color seed
+    else if (which_color == 3) {r_max = 0; g_max = 160; b_max = 204;}
+
+    //This color seed gives rainbowing
+    else if (which_color == 4) {r_max = 204; g_max = 159; b_max = 202;}
+
+    //This color seed gives green centric rainbowing
+    else if (which_color == 5) {r_max = 117; g_max = 215; b_max = 255;}
+
+    else if (which_color == 6) {r_max = 0; g_max = 0; b_max = 0;}
+
+    else if (which_color == 7) {r_max = 0; g_max = 0; b_max = 0;}
   }
 
   p.windowResized = function() {

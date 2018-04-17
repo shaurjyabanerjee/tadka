@@ -5,31 +5,32 @@
 const gradient_snake = require('./sketches/gradient_snake');
 const feedbake_snake = require('./sketches/feedbake_snake');
 const maze_generator = require('./sketches/maze_generator');
+const goop2          = require('./sketches/goop3')
 
 var bodyEl = document.getElementsByTagName('body')[0];
 
 var which_sketch = Math.random();
 
 if (which_sketch < 0.33) {
-  bodyEl.classList.add('gradient_snake');
+  bodyEl.classList.add('goop2');
   bodyReady();
 
-  gradient_snake();
+  goop2();
 } 
 
 else if (which_sketch >= 0.33 && which_sketch < 0.66) {
-  bodyEl.classList.add('feedbake_snake');
+  bodyEl.classList.add('goop2');
   bodyReady();
 
-  feedbake_snake();
+  goop2();
 } 
 
 else if (which_sketch >= 0.66) 
 {
-  bodyEl.classList.add('maze_generator')
+  bodyEl.classList.add('goop2')
   bodyReady();
 
-  maze_generator();
+  goop2();
 }
 
 function bodyReady() {

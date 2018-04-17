@@ -9,6 +9,7 @@ const phyllotaxis             = require('./sketches/phyllotaxis');
 const maze_generator          = require('./sketches/maze_generator');
 const feedbake_snake          = require('./sketches/feedbake_snake');
 const grid_goop               = require('./sketches/goop1');
+const point_goop              = require('./sketches/goop3');
 
 var bodyEl = document.getElementsByTagName('body')[0];
 var which_sketch = Math.random();
@@ -16,9 +17,9 @@ var which_sketch = Math.random();
 //This is the sketch that is run on the sculptures page,
 //as identified by the 'projects' class
 if(bodyEl.classList.contains('projects')) {
-  bodyEl.classList.add('grid_goop');
+  bodyEl.classList.add('point_goop');
   bodyReady();
-  grid_goop();
+  point_goop();
 } 
 
 //GAME PAGES ------------------------------------------------------------------------
