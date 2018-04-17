@@ -1,6 +1,6 @@
 ---
 
-title: APVFeedBakE HOW TO
+title: APVFeedBakE HOW IT WORKS
 date: 2018-04-10 18:24 PDT
 category: electronics
 ---
@@ -9,6 +9,8 @@ category: electronics
 
 %p.warning Opening and modifying a Cathode Ray Tube (CRT) Television is an extremely dangerous process. CRTs can store charge for months and sometimes even years after they have been unplugged. Please exercise extreme caution and working on a CRT. This is NOT a step by step guide to making modifications to a CRT Television. If you have no prior experience with opening or operating on a CRT, please do not use this as a guide. I have provided links to other resources at the end of this page that provide an introductory explanation of the parts of a CRT TV, and CRT related safety. 
 
+
+%iframe.project__video{:allow => "autoplay; encrypted-media", :allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/imfJ_a4Fl4Y?rel=0&controls=0&showinfo=0", :width => "560"}
 
 %h2.project__heading Safety Procedures
 
@@ -19,21 +21,25 @@ category: electronics
 
 %h2.project__heading APVCam Construction
 
+%p.project__para The APVCam uses two NEMA-17 Stepper Motors to provide users very precise control on the pan and roll axes of the camera used for video feedback. The camera used in APVCam is a small and lightweight security camera normally used for CCTV applications. I chose this kind of camera because of its size, cheapness and ability to directly output composite video.
+
+//APV Cam Side Shot
 %div.project__single__image
 	= tag :img, :src => "/assets/images/projects/apvcam/annotated/apvcam_a1.jpg", class:'single__image'
 
+%p.project__para To control the APVCam, I built up some simple control circuitry - a few momentary buttons for manual jog, an assignable cycle start button, switch and a knob. APVCam’s controller is built using Arduino, with motor control duties handled by the Adafruit Motor Shield V2. All of this control circuitry is housed in the APV Cam Controller (pictured below)
+
+//APV Cam and Controller
 %div.project__single__image
 	= tag :img, :src => "/assets/images/projects/apvcam/annotated/apvcam_a2.jpg", class:'single__image'
 
+//APV Cam Camera Holder
 %div.project__single__image
 	= tag :img, :src => "/assets/images/projects/apvcam/annotated/apvcam_a3.jpg", class:'single__image'
 
+//APV Cam Leveler Screw
 %div.project__single__image
 	= tag :img, :src => "/assets/images/projects/apvcam/annotated/apvcam_a4.jpg", class:'single__image'
-
-%p.project__para
-
-%p.project__para
 
 %h2.project__heading APVCam Firmware
 
@@ -46,34 +52,47 @@ category: electronics
 
 %p.project__para
 
+//APV TV Block Diagram
 %div.project__single__image
 	= tag :img, :src => "/assets/images/projects/apvtv/annotated/apvtv_a1.jpg", class:'single__image'
 
+//APV TV Electromagnet Closeup
 %div.project__single__image
 	= tag :img, :src => "/assets/images/projects/apvtv/annotated/apvtv_a2.jpg", class:'single__image'
 
+//APV TV Side Profile
 %div.project__single__image
 	= tag :img, :src => "/assets/images/projects/apvtv/annotated/apvtv_a3.jpg", class:'single__image'
 
+//APV TV Relays Closeup
 %div.project__single__image
 	= tag :img, :src => "/assets/images/projects/apvtv/annotated/apvtv_a4.jpg", class:'single__image'
 
+//APV TV Flyback Transformer, Anode Splice
 %div.project__single__image
 	= tag :img, :src => "/assets/images/projects/apvtv/annotated/apvtv_a5.jpg", class:'single__image'
 
+//APV TV Overview
 %div.project__single__image
 	= tag :img, :src => "/assets/images/projects/apvtv/annotated/apvtv_a6.jpg", class:'single__image'
 
+//APV TV Arduino Closeup
 %div.project__single__image
 	= tag :img, :src => "/assets/images/projects/apvtv/annotated/apvtv_a7.jpg", class:'single__image'
 
+//APV TV Warning Labels
 %div.project__single__image
 	= tag :img, :src => "/assets/images/projects/apvtv/annotated/apvtv_a8.jpg", class:'single__image'
 
 %p.project__para-8
 
-%h2.project__heading-3 APVTV Firmware
+%h2.project__heading APVTV Firmware
 
 %p.project__para-9
 
 %p.project__para-10
+
+%h2.project__heading Further Reading
+
+%p.project__para-3 
+	= link_to "CRACKED RAY TUBE TUTORIALS", "http://crackedraytube.com/textstutorials.html"
