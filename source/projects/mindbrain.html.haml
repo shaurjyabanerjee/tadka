@@ -3,11 +3,21 @@
 title: mindbrain
 date: 2016-04-20 04:20 PDT
 category: electronics
-
+featured_img: "/assets/images/projects/mindbrain/mindbrain_proto2.jpg"
 ---
 
 %p.project__para-1 MindBrain is a two input, eight output two-way computer to Control Voltage interface with an included software package which aims to bridge the gap between the two worlds of hardware modular synthesis and computer music production and software.
 
 %p.project__para-2 MindBrain re-purposes cheap 8 channel USB audio interfaces marketed as being for entry level 7.1 systems. A few simple modifications and some external circuitry allows these interfaces to be used as USB 2.0 class-compliant devices that can be used in any DAW or musical programming software package such as Max, Reaktor, SuperCollider, Pure Data, ChucK amongst many others.
 
+%h2.project__heading PROTOTYPE #1
+
+%div.project__image-container
+	- 1.upto(5) do |index|
+		= tag :img, src: "/assets/images/projects/mindbrain/mindbrain_proto#{index}.jpg",class:'project__image'
+
+%h2.project__heading AMPLIFIER CIRCUIT BOARD
+
+%div.project__single__image
+	= tag :img, :src => "/assets/images/projects/mindbrain/mindbrain_proto6.jpg", class:'single__image'
 
