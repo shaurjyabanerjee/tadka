@@ -9,6 +9,8 @@
 @import '../fonts/vcr-osd-mono';
 
 body {
+  text-align: justify;
+  text-justify: inter-word;
   //Default CSS for small phone screens
   font-family: 'Rubik Mono One';
   font-size: 0.85rem;
@@ -30,12 +32,13 @@ h1, h2, h3, h4, h5, time {
   }
 }
 
-//Assign pages that will use pixel fonts
-body.electronics_apvfeedbake_info, .electronics_3dsandbox_info {
-  //Default CSS for small phone screens
-  font-family: 'Vcr Osd Mono';
 
-  //For every size bigger than a tablet
+//Set pixel font for tech info pages
+body.electronics_apvfeedbake_info, .electronics_3dsandbox_info {
+  text-align: justify;
+  text-justify: inter-word;
+
+  font-family: 'Vcr Osd Mono';
   h1, h2, h3, h4, h5, time {
     font-family: 'Vcr Osd Mono';
   }
