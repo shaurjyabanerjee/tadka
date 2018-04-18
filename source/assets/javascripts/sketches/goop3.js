@@ -1,8 +1,8 @@
 //Goop 3 - Random Points Drawn into feedback
 //with procedural selection of color palettes
+
 //Shaurjya Banerjee 2018
 //Using canvas feedback framework by Mike Leisz 2018
-
 //-----------------------------------------------------------------
 
 import p5 from 'p5';
@@ -13,10 +13,15 @@ var sketch = function(p) {
   var num_steps = 42;
   var step_size;
 
-  var r_max;
-  var g_max;
-  var b_max;
-  var num_points;
+  var r_max, g_max, b_max;
+  var r_cir, g_cir, b_cir;
+
+  var tx_mult, ty_mult;
+  var sx_mult, sy_mult;
+
+  var p_radius;
+
+  var num_points, num_particles;
 
   var which_color;
 
@@ -33,8 +38,13 @@ var sketch = function(p) {
   p.setup = function() {
     p.pixelDensity(1);
     p.createCanvas(p.windowWidth, p.windowHeight);
-    num_points = p.floor(p.random(5, 50));
+    num_points = p.floor(p.random(10, 100));
+    //num_particles = p.floor(p.random(10, 30));
+    num_particles = 10;
+    p_radius = 200;
+
     p.choose_color();
+    p.set_feedback_multipliers();
 
     buffer = setupBuffer();
 
@@ -45,16 +55,30 @@ var sketch = function(p) {
   p.draw = function() {
     p.background(51);
 
-    let translateX = (p.mouseX - p.width/2) * 0.024;
-    let translateY = (p.mouseY - p.height/2) * 0.024;
-    let scaleX = (p.mouseX - p.width/2) * 0.064;
-    let scaleY = (p.mouseY - p.height/2) * 0.064;
+    let translateX = (p.mouseX - p.width/2) * tx_mult;
+    let translateY = (p.mouseY - p.height/2) * ty_mult;
+    let scaleX = (p.mouseX - p.width/2) * sx_mult;
+    let scaleY = (p.mouseY - p.height/2) * sy_mult;
 
     melt(translateX, translateY, scaleX, scaleY, 0.001);
 
-    buffer.noStroke();
+    //every 150 frames, reset feedback multipliers
+    if (p.frameCount % 150 == 0) 
+    {
+      p.choose_color();
+      p.set_feedback_multipliers();
+    }
 
     p.seed_points();
+
+    if (p.mouseX != 0) {
+      if (p.mouseY != 0) {
+        //Highlight mouse position
+        //buffer.fill(225, 0, 0, 20);
+        //buffer.ellipse(p.mouseX, p.mouseY, 200, 200);
+      }
+    }
+    
     p.image(buffer, 0, 0);
   };
 
@@ -85,10 +109,22 @@ var sketch = function(p) {
 
     //This color seed gives green centric rainbowing
     else if (which_color == 5) {r_max = 117; g_max = 215; b_max = 255;}
+  }
 
-    else if (which_color == 6) {r_max = 0; g_max = 0; b_max = 0;}
+  p.set_feedback_multipliers = function() {
+    tx_mult = p.random(0.001, 0.05);
+    ty_mult = p.random(0.001, 0.05);
+    sx_mult = p.random(0.001, 0.05);
+    sy_mult = p.random(0.001, 0.05);
+  }
 
-    else if (which_color == 7) {r_max = 0; g_max = 0; b_max = 0;}
+  p.draw_particles = function() {
+    for (var i = 0; i < num_particles; i++) {
+      var temp_x1 = p.mouseX + p.random(p_radius); 
+      var temp_y1 = p.mouseY + p.random(p_radius);
+      buffer.fill(255, 0, 0);
+      buffer.ellipse(temp_x1, temp_y1, 10, 10);
+    }
   }
 
   p.windowResized = function() {
