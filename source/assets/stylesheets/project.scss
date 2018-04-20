@@ -9,8 +9,8 @@
   }
 }
 
-//Do not display any html on our game pages
-.games {
+//Do not display any html on our game and video pages
+.games, .video {
   .project__meta {
     display: none;
   }
