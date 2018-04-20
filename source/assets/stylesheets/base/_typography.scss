@@ -35,6 +35,25 @@ h1, h2, h3, h4, h5, time {
 .landing_page {
   text-align: center;
   color: white;
+
+  //Formatting for links
+  a {
+    text-decoration: none;
+
+    &:visited {
+      color: white;
+    }
+    color: white;
+    &:hover {
+      color: red;
+    }
+  }
+}
+
+//Center links on landing page
+.box {
+  height: 50vh;
+  margin-top: 25vh;
 }
 
 //Set pixel font for tech info pages
