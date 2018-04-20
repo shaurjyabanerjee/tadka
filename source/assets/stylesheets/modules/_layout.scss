@@ -30,34 +30,50 @@ canvas {
   z-index: -1;
 }
 
+//All the white formatted text goes here
+.gradient_snake, .maze_generator, .feedbake_snake, .feedbake_snake_sound,
+.phyllotaxis, .border_inverted, .flowfield_inverted {
+  //Text color
+  color: white;
+
+  //Formatting for links
+  a {
+    text-decoration: none;
+
+    &:visited {
+      color: white;
+    }
+
+    color: white;
+
+    &:hover {
+      color: magenta;
+    }
+  }
+
+}
+
+//All the black formatted text goes here
+.grid_goop, .border, .flowfield {
+  //Text color
+  color: black;
+
+  //Formatting for links
+  a {
+    text-decoration: none;
+
+    &:visited {
+      color: black;
+    }
+
+    color: black;
+
+    &:hover {
+      color: magenta;
+    }
+  }
+}
+
 .unready {
   display: none;
-}
-
-.gradient_snake {
-  color: white;
-}
-
-.maze_generator {
-  color: white;
-}
-
-.feedbake_snake, .feedbake_snake_sound {
-  color: white;
-}
-
-.grid_goop {
-  color: black;
-}
-
-.phyllotaxis {
-  color: white;
-}
-
-.border, .flowfield {
-  color: black;
-}
-
-.border_inverted, .flowfield_inverted{
-  color: white;
 }
