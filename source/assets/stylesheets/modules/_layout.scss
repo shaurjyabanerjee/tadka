@@ -32,17 +32,31 @@ canvas {
 
 .home__boxes {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(34rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
   grid-gap: 30px;
 }
 
-
 .home__box {
-  background: white;
+  background: transparent;
 
   .landing_page a {
-    color: magenta;
+    text-decoration: none;
+
+    &:visited {
+      color: white;
+    }
+
+    color: white;
+
+    &:hover {
+      color: red;
+    }
   }
+}
+
+.home__box_top {
+  backround: rgb(255, 100, 100);
+
 }
 
 //All the white formatted text goes here

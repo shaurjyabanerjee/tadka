@@ -21,7 +21,7 @@ body {
   }
 }
 
-h1, h2, h3, h4, h5, time {
+h1, h2, h3, h4 time {
   //Default CSS for small phone screens
 	font-family: 'Rubik Mono One';
   font-size: 1.6rem;
@@ -31,6 +31,29 @@ h1, h2, h3, h4, h5, time {
     font-size: 2.6rem;
   }
 }
+
+h2 {
+  //Default CSS for small phone screens
+  font-family: 'Rubik Mono One';
+  font-size: 1.5rem;
+
+  //For every size bigger than a tablet
+  @media #{$break-sm-plus} {
+    font-size: 2rem;
+  }
+}
+
+h5 {
+  //Default CSS for small phone screens
+  font-family: 'Rubik Mono One';
+  font-size: 0.75rem;
+
+  //For every size bigger than a tablet
+  @media #{$break-sm-plus} {
+    font-size: 1.2rem;
+  }
+}
+
 
 .landing_page, .games_page {
   text-align: center;
