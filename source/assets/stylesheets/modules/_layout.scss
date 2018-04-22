@@ -30,6 +30,21 @@ canvas {
   z-index: -1;
 }
 
+.home__boxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(34rem, 1fr));
+  grid-gap: 30px;
+}
+
+
+.home__box {
+  background: white;
+
+  .landing_page a {
+    color: magenta;
+  }
+}
+
 //All the white formatted text goes here
 .gradient_snake, .maze_generator, .feedbake_snake, .feedbake_snake_sound,
 .phyllotaxis, .border_inverted, .flowfield_inverted {
