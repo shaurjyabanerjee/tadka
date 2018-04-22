@@ -24,7 +24,7 @@ body {
 h1, h2, h3, h4, h5, time {
   //Default CSS for small phone screens
 	font-family: 'Rubik Mono One';
-  font-size: 1.8rem;
+  font-size: 1.6rem;
 
   //For every size bigger than a tablet
   @media #{$break-sm-plus} {
