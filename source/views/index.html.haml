@@ -4,19 +4,20 @@ layout: index
 ---
 
 
-.box
-	%h1.landing_page WELCOME TO
-	%h1.landing_page WHOLESOMECIRCUITS
+.home_boxes
+	.home__box
+		%h1.landing_page
+			= link_to "SCULPTURES", "/sculptures"
 
-	%h1.landing_page
-		= link_to "SCULPTURES", "/sculptures"
+	.home__box
+		%h1.landing_page
+			= link_to "ELECTRONICS", "/electronics"
+	
+	.home__box	
+		%h1.landing_page
+			= link_to "GAMES", "/games"
 
-	%h1.landing_page
-		= link_to "ELECTRONICS", "/electronics"
-		
-	%h1.landing_page
-		= link_to "GAMES", "/games"
-
-	%h1.landing_page
-		= link_to "VIDEO", "/video"
+	.home__box
+		%h1.landing_page
+			= link_to "VIDEO", "/video"
 
