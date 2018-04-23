@@ -15,11 +15,27 @@
     display: none;
   }
 
+  //Center small images
   .single__image {
     display: block;
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+.about_me {
+  project__meta: hide;
+}
+
+.sb__single__image {
+
+  float: left;
+  width: 30rem;
+  padding-top: 0px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 2rem;
+
 }
 
 .project {

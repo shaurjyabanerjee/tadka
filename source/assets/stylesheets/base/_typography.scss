@@ -46,11 +46,11 @@ h2 {
 h5 {
   //Default CSS for small phone screens
   font-family: 'Rubik Mono One';
-  font-size: 0.75rem;
+  font-size: 0.9rem;
 
   //For every size bigger than a tablet
   @media #{$break-sm-plus} {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 }
 
