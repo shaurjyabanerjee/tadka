@@ -7,10 +7,14 @@
     padding-top: 0;
     padding-bottom: 0;
   }
+
+  .electronics__thumbnails {
+    padding: 2rem;
+  }
 }
 
 //Do not display any html on our game and video pages
-.games, .video {
+.games, .video, .about_me {
   .project__meta {
     display: none;
   }
@@ -27,15 +31,14 @@
   project__meta: hide;
 }
 
+//Formatting for image on about me page
 .sb__single__image {
-
   float: left;
-  width: 30rem;
+  width: 32rem;
   padding-top: 0px;
-  padding-left: 2rem;
+  padding-left: 0rem;
   padding-right: 2rem;
   padding-bottom: 2rem;
-
 }
 
 .project {
@@ -70,6 +73,14 @@
 .project__thumbnails {
   grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
   grid-gap: 0px;
+}
+
+.electronics__thumbnails {
+  opacity: 0.92;
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
+  grid-gap: 2rem;
 }
 
 .project__thumbnail {
