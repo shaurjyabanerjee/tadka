@@ -89,3 +89,14 @@ body.electronics_apvfeedbake_info, .electronics_3dsandbox_info {
     font-family: 'Vcr Osd Mono';
   }
 }
+
+//Set pixel font for tech info pages
+body.resume {
+  text-align: justify;
+  text-justify: inter-word;
+
+  font-family: 'Rubik';
+  h1, h2, h3, h4, h5, time {
+    font-family: 'Rubik';
+  }
+}

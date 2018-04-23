@@ -14,7 +14,7 @@
 }
 
 //Do not display any html on our game and video pages
-.games, .video, .about_me {
+.games, .video, .about_me, .resume {
   .project__meta {
     display: none;
   }
@@ -39,6 +39,23 @@
   padding-left: 0rem;
   padding-right: 2rem;
   padding-bottom: 2rem;
+}
+
+.resume {
+
+  .project__heading {
+    font-size: 2rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .project_para { 
+    font-size: 1rem;
+    margin: 0px;
+  }
+
+  a {
+    font-size: 1rem;
+  }
 }
 
 .project {
