@@ -5,7 +5,7 @@
 const gradient_snake = require('./sketches/gradient_snake');
 const feedbake_snake = require('./sketches/feedbake_snake');
 const maze_generator = require('./sketches/maze_generator');
-const goop2          = require('./sketches/goop3')
+const goop2          = require('./sketches/goop3_landing');
 
 var bodyEl = document.getElementsByTagName('body')[0];
 
