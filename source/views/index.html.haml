@@ -8,19 +8,18 @@ layout: index
 	%h5.landing_page kinetic sculptor | fabricator | electronics designer
 
 .home__boxes
-	.home__box
-		%h1.landing_page
-			= link_to "SCULPTURES", "/sculptures"
+	%a{:href => "/sculptures"}
+		%div.home__box
+			SCULPTURES
 
-	.home__box
-		%h1.landing_page
-			= link_to "ELECTRONICS", "/electronics"
+	%a{:href => "/electronics"}
+		%div.home__box
+			ELECTRONICS
 
-	.home__box
-		%h1.landing_page
-			= link_to "GAMES", "/games"
+	%a{:href => "/games"}
+		%div.home__box
+			GAMES
 
-	.home__box
-		%h1.landing_page
-			= link_to "VIDEO", "/video"
-
+	%a{:href => "/video"}
+		%div.home__box
+			VIDEO

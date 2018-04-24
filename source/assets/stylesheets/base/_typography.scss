@@ -8,6 +8,20 @@
 @import '../fonts/rubik-mono-one';
 @import '../fonts/vcr-osd-mono';
 
+a {
+  text-decoration: none;
+
+  &:visited {
+    color: white;
+  }
+
+  color: white;
+
+  &:hover {
+    color: magenta;
+  }
+}
+
 body {
   text-align: left;
   //text-justify: inter-word;

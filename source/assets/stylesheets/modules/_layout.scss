@@ -58,31 +58,23 @@ canvas {
 .home__box {
   background: black;
   opacity: 0.7;
-  height: 15vh;
+  height: 5vh;
+
+  @media #{$break-sm-plus} {
+    height: 15vh;
+  }
 
   padding: 50px 0;
   text-align: center;
+  font-size: 1rem;
+  padding-top: 5vh;
+  color: white;
 
-  .landing_page a {
-    vertical-align: middle;
-    text-decoration: none;
-
-    font-size: 1rem;
-
-    @media #{$break-sm-plus} {
-      font-size: 2rem;
-    }
-
-    &:visited {
-      color: white;
-    }
-
-    color: white;
-
-    &:hover {
-      color: red;
-    }
+  @media #{$break-sm-plus} {
+    font-size: 2.2rem;
+    padding-top: 15vh;
   }
+
 }
 
 .home__box_top {
