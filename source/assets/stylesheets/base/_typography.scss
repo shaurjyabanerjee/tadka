@@ -8,15 +8,13 @@
 @import '../fonts/rubik-mono-one';
 @import '../fonts/vcr-osd-mono';
 
+//Global formatting for links across the site
 a {
   text-decoration: none;
-
   &:visited {
     color: white;
   }
-
   color: white;
-
   &:hover {
     color: magenta;
   }
