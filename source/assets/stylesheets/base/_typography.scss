@@ -57,15 +57,16 @@ h2 {
 
 h5 {
   //Default CSS for small phone screens
-  font-family: 'Rubik Mono One';
+  opacity: 0.85;
+  font-family: 'Rubik';
   font-size: 0.9rem;
+  margin-top: 0px;
 
   //For every size bigger than a tablet
   @media #{$break-sm-plus} {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 }
-
 
 .landing_page, .games_page {
   text-align: center;
@@ -83,6 +84,17 @@ h5 {
       color: red;
     }
   }
+}
+
+h1.landing_page {
+  opacity: 0.85;
+  font-size: 3rem;
+  margin-bottom: 0px;
+  margin-top: 8vh;
+}
+
+h5.landing_page {
+  margin-bottom: 8vh;
 }
 
 //Center links on landing page

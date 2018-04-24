@@ -45,24 +45,26 @@ canvas {
 
 .home__boxes {
   display: grid;
-
   grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   grid-gap: 1rem;
 
   @media #{$break-sm-plus} {
      grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-     grid-gap: 2rem;
+     grid-gap: 4rem;
   }
 }
 
 //Formatting for the home page links
 .home__box {
-  background: black;
-  opacity: 0.7;
-  height: 5vh;
+  background: transparent;
+  opacity: 0.85;
+  height: 7vh;
+  border-style: solid;
+  border-width: 2px;
+
 
   @media #{$break-sm-plus} {
-    height: 15vh;
+    height: 5vh;
   }
 
   padding: 50px 0;
@@ -73,7 +75,7 @@ canvas {
 
   @media #{$break-sm-plus} {
     font-size: 2.2rem;
-    padding-top: 15vh;
+    padding-top: 7vh;
   }
 }
 
