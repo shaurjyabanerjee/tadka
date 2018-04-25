@@ -43,12 +43,18 @@
 
 .resume {
 
+  .resume__link, .resume_para {
+    margin-bottom: 0px;
+    margin-top: 0px;
+
+  }
+
   .project__heading {
     font-size: 2rem;
     margin-bottom: 0.3rem;
   }
 
-  .project_para { 
+  .project_para, .resume_para { 
     font-size: 1rem;
     margin: 0px;
   }

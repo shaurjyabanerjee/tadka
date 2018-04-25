@@ -10,6 +10,7 @@ const maze_generator          = require('./sketches/maze_generator');
 const feedbake_snake          = require('./sketches/feedbake_snake');
 const grid_goop               = require('./sketches/goop1');
 const point_goop              = require('./sketches/goop3');
+const landing_goop            = require('./sketches/goop3_landing');
 
 var bodyEl = document.getElementsByTagName('body')[0];
 var which_sketch = Math.random();
@@ -42,6 +43,13 @@ else if (bodyEl.classList.contains('games_feedbake_snake')) {
   bodyEl.classList.add('feedbake_snake');
   bodyReady();
   feedbake_snake();
+}
+
+else if (bodyEl.classList.contains('games_goop')) {
+  bodyEl.classList.add('goop');
+  bodyReady();
+  point_goop();
+
 }
 
 //PROJECT SKETCHES ------------------------------------------------------------------
