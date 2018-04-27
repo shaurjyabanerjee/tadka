@@ -10,9 +10,6 @@ featured_img: "/assets/images/projects/apvtv/apvtv1.jpg"
 
 %p.warning Opening and modifying a Cathode Ray Tube (CRT) Television is an extremely dangerous process. CRTs can store charge for months and sometimes even years after they have been unplugged. Please exercise extreme caution and working on a CRT. This is NOT a step by step guide to making modifications to a CRT Television. If you have no prior experience with opening or operating on a CRT, please do not use this as a guide. I have provided links to other resources at the end of this page that provide an introductory explanation of the parts of a CRT TV, and CRT related safety. 
 
-
-%iframe.project__video{:allow => "autoplay; encrypted-media", :allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/imfJ_a4Fl4Y?rel=0&controls=0&showinfo=0", :width => "560"}
-
 %h2.project__heading Safety Procedures
 
 %p.project__para One of the most important safety measures I take on every CRT I have ever opened is to leave yourself a number of safety warnings. Before opening or working on a CRT, always make sure the television has been unplugged! I like to put a ‘DID YOU UNPLUG IT?’ label on all CRT Tubes when I first open them, as well as on the power cord itself. Labelling CRT power cords prevent frustrations when inspecting a well hidden power strip to unplug a television. 
@@ -20,54 +17,33 @@ featured_img: "/assets/images/projects/apvtv/apvtv1.jpg"
 
 %p.project__para If you plan on working on a CRT, it is a very good idea to make yourself a dedicated discharge tool instead of reaching for the nearest flathead screwdriver. If you have access to a machine shop, it is advisable to drill and tap a hole with a set screw to attach your grounding wire securely to your screwdriver.
 
-//----------------------------------------------------------------------------------------------------------------------------
-
-%h2.project__heading APVCam Construction
-
-%p.project__para The APVCam uses two NEMA-17 Stepper Motors to provide users very precise control on the pan and roll axes of the camera used for video feedback. The camera used in APVCam is a small and lightweight security camera normally used for CCTV applications. I chose this kind of camera because of its size, cheapness and ability to directly output composite video.
-
-//APV Cam Side Shot
-%div.project__single__image
-	= tag :img, :src => "/assets/images/projects/apvcam/annotated/apvcam_a1.jpg", class:'single__image'
-
-%p.project__para To control the APVCam, I built up some simple control circuitry - a few momentary buttons for manual jog, an assignable cycle start button, switch and a knob. APVCam’s controller is built using Arduino, with motor control duties handled by the Adafruit Motor Shield V2. All of this control circuitry is housed in the APV Cam Controller (pictured below)
-
-//APV Cam and Controller
-%div.project__single__image
-	= tag :img, :src => "/assets/images/projects/apvcam/annotated/apvcam_a2.jpg", class:'single__image'
-
-%p.project__para All of the parts for APVCam are machined from 6061 aluminium. Pictured below is the APVCam camera holder, which uses four 10-32 UNF screws to securely hold the camera and to center the camera on APVCam's roll axis. This camera centering system is inspired by the jaws of a 4 jaw chuck on a lathe.
-
-//APV Cam Camera Holder
-%div.project__single__image
-	= tag :img, :src => "/assets/images/projects/apvcam/annotated/apvcam_a3.jpg", class:'single__image'
-
-%p.project__para Each corner of the baseplate of APVCam has been drilled and tapped for 10-32 UNF fasteners, which are used as leveling screws to align APVCam to the plane of its subject. The leveler screws are preloaded by springs for stability. These allow for some adjustability to level or tilt the whole mechanism as needed.
-
-//APV Cam Leveler Screw
-%div.project__single__image
-	= tag :img, :src => "/assets/images/projects/apvcam/annotated/apvcam_a4.jpg", class:'single__image'
-
-
-//----------------------------------------------------------------------------------------------------------------------------
 
 %h2.project__heading APVTV Construction
 
-%p.project__para APVTV is a highly modified and de-constructed CRT television, which has been re-housed in a welded steel frame, with transparent acrylic panels so that the internals of the CRT are clearly visible. The donor CRT television was a 14" Magnavox from 2004 with built in VHS player that I purchased from Goodwill. The VHS player on the television did not work when I purchased it. 
+%p.project__para APVTV is a highly modified and de-constructed CRT television, which has been re-housed in a welded steel frame, with transparent acrylic panels so that the internals of the CRT are clearly visible. The donor CRT television was a 14" Magnavox from 2004 with built in VHS player that I purchased from Goodwill.
 
 //APV TV Overview
 %div.project__single__image
 	= tag :img, :src => "/assets/images/projects/apvtv/annotated/apvtv_a6.jpg", class:'single__image'
 
-%p.project__para The CRT has been modified to have two custom-made electromagnets located in very close proximity to the CRT's electron gun, and they are pictured below. The electromagents are powered 
 
-//APV TV Block Diagram
-%div.project__single__image
-	= tag :img, :src => "/assets/images/projects/apvtv/annotated/apvtv_a1.jpg", class:'single__image'
+%h2.project__heading COLOR DEFLECTION ELECTROMAGNETS
+
+%p.project__para The CRT has been modified to have two custom-made electromagnets located in very close proximity to the CRT's electron gun, and are used for electromagnetic color deflection. These electromagents diverge the RED GREEN and BLUE electron beams, and create color separation effects. 
+
+%p.project__para The electromagents are driven by a Pyle 100 watt amplifier originally designed for use with speakers. The electromagnets were hand wound onto core made of a 3/8 inch steel bolt, using the shoulder of the bolt as a guide for wrapping the layers of magnetic wire. 
+
+%p.project__para If making your own electromagnets, be sure to use magnet wire, as it is a great deal thinner and more ductile than general purpose stranded wire. When winding the coils of your electromagnet, be sure to periodically test the resistance of the coil using a multimeter, and keep adding wire till you are in the 4 to 8 ohm range - the resistance of an average speaker coil.
 
 //APV TV Electromagnet Closeup
 %div.project__single__image
 	= tag :img, :src => "/assets/images/projects/apvtv/annotated/apvtv_a2.jpg", class:'single__image'
+
+%h2.project__heading APV TV Block Diagram
+
+//APV TV Block Diagram
+%div.project__single__image
+	= tag :img, :src => "/assets/images/projects/apvtv/annotated/apvtv_a1.jpg", class:'single__image'
 
 //APV TV Side Profile
 %div.project__single__image
@@ -89,15 +65,31 @@ featured_img: "/assets/images/projects/apvtv/apvtv1.jpg"
 %div.project__single__image
 	= tag :img, :src => "/assets/images/projects/apvtv/annotated/apvtv_a8.jpg", class:'single__image'
 
-
+%h2.project__heading APV TV Firmware
 
 %p.project__para APVTV contains an Arduino microcontroller board which controls the relays. One logic output from the Arduino switches a pair of relays, for a total of four outputs controlling the TV's deflection signals and electromagnets. Additionally, the microcontroller presents a menu interface on the TV itself, for access to different modes of operation for the relays.
 
-%p.project__para There are two modes that generate rhythmic patterns for the relays using the bytebeat technique [1] The user can shift and very the speed of the patterns with knobs mounted on the front of APVTV. While these modes are active, the bytebeat patterns also corrupt the video memory of the menu system, providing a feedback-like visual element in the absence of external video input.
+%p.project__para There are two modes that generate rhythmic patterns for the relays using the bytebeat technique The user can shift and very the speed of the patterns with knobs mounted on the front of APVTV. While these modes are active, the bytebeat patterns also corrupt the video memory of the menu system, providing a feedback-like visual element in the absence of external video input.
 
 
+%h2.project__heading APVFeedBakE in USE
 
-%h2.project__heading Further Reading
+%p.project__link
+	= link_to "APVFeedBakE - Shaurjya Banerjee & James Anderson 2018", "/sculptures/apvfeedbake"
+
+%p.project__link
+	= link_to "Find out how APV Cam Works", "/electronics/apvcam_info"
+
+%iframe.project__video{:allow => "autoplay; encrypted-media", :allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/imfJ_a4Fl4Y?rel=0&controls=0&showinfo=0", :width => "560"}
+
+
+%h2.project__heading Related Reading and Information
 
 %p.project__link
 	= link_to "CRACKED RAY TUBE TUTORIALS", "http://crackedraytube.com/textstutorials.html"
+
+%p.project__link
+	= link_to "BYTEBEAT TECHNIQUE", "http://canonical.org/~kragen/bytebeat/"
+
+
+
