@@ -1,31 +1,33 @@
 ---
 
-title: seamonster
+title: SEAMONSTER
 date: 2018-03-29 21:45 PDT
 category: electronics
 featured_img: "/assets/images/projects/seamonster/seamonster_proto2.jpg"
 ---
 
-%p.project__para-1 SeaMonster is a CMOS-based 8 step multi function sequencer. It is a work in progress project, with working prototypes in use already. It can be used as a wavetable oscillator, and also as a multiplexer/demultiplexer for audio and control voltage.
+%p.project__para-1 SeaMonster is a CMOS-based 8 step multi function sequencer. It is a work in progress project, with working prototypes in use already. It can be used as a wavetable oscillator, and also as a multiplexer/demultiplexer for audio and control voltages. It is able to work at a very wide variety of clock rates ranging from very slow sequences (0.005 Hz) to wavetable rates (>40,000 Hz)
 
-%p.project__para I built the first prototype of Seamonster in 2017. The panel is made from brass offcuts from my local industrial metal supplier, and has been sized to fit a 34HP Eurorack space.
+%p.project__para I built the first prototype of SeaMonster in 2017. The panel is made from brass offcuts from my local industrial metal supplier, and has been sized to fit a 34HP Eurorack space. The first prototype of Seamonster has been constructed entirely on a single perfboard, but does not use the stage by stage buffering called for in the SeaMonster schematics.
+
+%p.project__para
+	= link_to "DOWNLOAD SCHEMATICS for SEAMONSTER (EagleCAD)", "https://s3-us-west-1.amazonaws.com/wholesomecircuits/seamonster_schematic.sch"
 
 %div.project__image-container
 	- 1.upto(6) do |index|
 		= tag :img, src: "/assets/images/projects/seamonster/seamonster_proto#{index}.jpg",class:'project__image'
 
 
-%h2.project__heading CIRCUIT BOARD TOP
+%h2.project__heading PERFBOARD TOP
 
 %div.project__single__image
 	= tag :img, :src => "/assets/images/projects/seamonster/seamonster_proto7.jpg", class:'single__image'
 
-%h2.project__heading CIRCUIT BOARD BOTTOM
+%h2.project__heading PERFBOARD BOTTOM
 
 %div.project__single__image
 	= tag :img, :src => "/assets/images/projects/seamonster/seamonster_proto8.jpg", class:'single__image'
 
-%p.project__para More information about this project can be found at my GitHub
 
 %p.project__link
-	= link_to "SEAMONSTER REPO", "https://github.com/shaurjyabanerjee/seamonster"
+	= link_to "More information about this project can be found at my GitHub", "https://github.com/shaurjyabanerjee/seamonster"

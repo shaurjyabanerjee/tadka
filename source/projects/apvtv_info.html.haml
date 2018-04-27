@@ -1,9 +1,9 @@
 ---
 
-title: APVFeedBakE HOW IT WORKS
+title: APV TV HOW IT WORKS
 date: 2018-04-10 18:24 PDT
 category: electronics
-featured_imgs: ["/assets/images/projects/apvtv/apvtv1.jpg", "/assets/images/projects/apvcam/apvcam1.jpg"]
+featured_img: "/assets/images/projects/apvtv/apvtv1.jpg"
 ---
 
 %h2.warning WARNING!!!
@@ -88,6 +88,13 @@ featured_imgs: ["/assets/images/projects/apvtv/apvtv1.jpg", "/assets/images/proj
 //APV TV Warning Labels
 %div.project__single__image
 	= tag :img, :src => "/assets/images/projects/apvtv/annotated/apvtv_a8.jpg", class:'single__image'
+
+
+
+%p.project__para APVTV contains an Arduino microcontroller board which controls the relays. One logic output from the Arduino switches a pair of relays, for a total of four outputs controlling the TV's deflection signals and electromagnets. Additionally, the microcontroller presents a menu interface on the TV itself, for access to different modes of operation for the relays.
+
+%p.project__para There are two modes that generate rhythmic patterns for the relays using the bytebeat technique [1] The user can shift and very the speed of the patterns with knobs mounted on the front of APVTV. While these modes are active, the bytebeat patterns also corrupt the video memory of the menu system, providing a feedback-like visual element in the absence of external video input.
+
 
 
 %h2.project__heading Further Reading

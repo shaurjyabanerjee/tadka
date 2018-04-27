@@ -118,6 +118,13 @@
   margin-left: 2rem;
 }
 
+.electronics__thumbnails {
+  .project__thumbnail:hover {
+    opacity: 1.0;
+    filter: saturate(2);
+  }
+}
+
 .project__thumbnail {
   height: 100%;
 
