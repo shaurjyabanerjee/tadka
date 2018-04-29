@@ -6,12 +6,27 @@ category: electronics
 featured_img: "/assets/images/projects/sandbox/sandbox1.jpg"
 ---
 
-%h2.project__heading EXTRACTING 3D from a SINGLE (MOVING) CAMERA
+%h2.project__heading What is 3DSANDBOX?
 
-%p.project__para
-
-//3D SANDBOX Video
-%iframe.project__video{:allow => "autoplay; encrypted-media", :allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/FHqAtkwYdqs?rel=0&controls=0&showinfo=0", :width => "560"}
+%p.project__para 3DSANDBOX is an interactive, realtime 3D art experience by James Anderson, Clay Burton and Shaurjya Banerjee. 3DSANBOX uses an experimental 3D capture technique to extract a realtime anaglyph video from a single camera that is constantly in motion.
 
 %p.external_link
-	= link_to "MOVING STILL - Santiago Caicedo", "http://santisan.free.fr/moving_still/tusc1.htm"
+	= link_to "3DSANDBOX PAGE", "/sculptures/3dsandbox"
+
+%h2.project__heading EXTRACTING 3D from a SINGLE (MOVING) CAMERA
+
+%p.project__para Our single camera 3D capture system was inpired by a piece by Santiago Caicedo called Moving Still, in which Caicedo used a video he recorded out of a the window of a train, and used a time delay between the frame displayed to each eye to create a stereoscopic image. 
+
+%p.project__para Since the train is moving with a relatively consistent speed, we can assume that some number of frames before the current frame the image was of the scene from some distance back towards the origin of the train. This alows for a time displacement to obtain a stereoscopic image.
+
+%p.external_link
+	= link_to "Santiago Caicedo explains his single camera stereo technique", "http://santisan.free.fr/moving_still/tusc1.htm"	
+
+%p.project__para Watch MOVING STILL by Santiago Caicedo
+
+%iframe.project__video{:allow => "autoplay; encrypted-media", :allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/tazR2uehVwI?rel=0&showinfo=0", :width => "560"}
+
+%p.external_link
+	= link_to "More information about APVCam here", "/electronics/apvcam_info"
+
+
