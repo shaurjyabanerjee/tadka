@@ -41,6 +41,8 @@ featured_img: "/assets/images/projects/apvtv/apvtv1.jpg"
 
 %h2.project__heading APV TV Block Diagram
 
+%p.project__para 
+
 //APV TV Block Diagram
 %div.project__single__image
 	= tag :img, :src => "/assets/images/projects/apvtv/annotated/apvtv_a1.jpg", class:'single__image'
@@ -49,13 +51,33 @@ featured_img: "/assets/images/projects/apvtv/apvtv1.jpg"
 %div.project__single__image
 	= tag :img, :src => "/assets/images/projects/apvtv/annotated/apvtv_a3.jpg", class:'single__image'
 
+%h2.project__heading Routing using Relays
+
+%p.project__para When using relays to control the routing of signals inside a turned-on CRT, it is EXTREMELY important to maintain very good isolation between the microcontroller and the CRT's higher voltage signals. Having improper isolation between these two parts of the circuit can result in extreme stability issues - microcontroller crashing and resetting itself every few seconds, to the CRT shutting itself off immidiately as the relays are used. 
+
+%p.warning It is important to note that this technique of re-routing the CRT's internal signals while it is turned on is a very dangerous, violent and sometimes very unpredictable. Any damage or loss of life caused to the CRT, your electronics, your body or anything else as a result of using this technique is to be expected and is not advised to anyone at any time. 
+
 //APV TV Relays Closeup
 %div.project__single__image
 	= tag :img, :src => "/assets/images/projects/apvtv/annotated/apvtv_a4.jpg", class:'single__image'
 
+%h2.project__heading Notes on Re-Wiring a CRT Television
+
+%p.project__para When embarking on a CRT re-housing project like APV TV, it is important to find a way to disconnect the picture tube from the control circuit board. I chose to use inline 2-pin and 3-pin Molex connectors spliced between all of the connections between the picture tube and its control circuit board. 
+
+%p.project__para I used a step-by-step approach, splicing only a couple connections at a time and testing in between splices. Being able to physically separate the picture tube from its control circuit board allowed me space these two things further apart in APV TV's frame, allowing more space for modifications and viewing.
+
+%p.project__para I used 22 AWG stranded wire for all splices, except for the wire connecting the flyback transformer to the anode cap. I extended this wire using 12 AWG stranded silicone wire, with no connector in between. This is the wire that carries the extremely high voltage - 26,000 Volts and above! Be very careful when doing any kind of work on/near the flyback transformer. 
+
+%p.project__para This splice is shown below, and I encased the joint in several layers of heatshrink to provide a strong insulation, like the silicone insulation of the wire I was using.
+
 //APV TV Flyback Transformer, Anode Splice
 %div.project__single__image
 	= tag :img, :src => "/assets/images/projects/apvtv/annotated/apvtv_a5.jpg", class:'single__image'
+
+%h2.project__heading ARDUINO SHIELD
+
+%p.project__para APV TV uses an Arduino microcontroller and a custom made shield to control the input buttons and knobs and composite video output, relay control and control voltage scaling and conditioning. 
 
 //APV TV Arduino Closeup
 %div.project__single__image
@@ -69,8 +91,7 @@ featured_img: "/assets/images/projects/apvtv/apvtv1.jpg"
 
 %p.project__para APVTV contains an Arduino microcontroller board which controls the relays. One logic output from the Arduino switches a pair of relays, for a total of four outputs controlling the TV's deflection signals and electromagnets. Additionally, the microcontroller presents a menu interface on the TV itself, for access to different modes of operation for the relays.
 
-%p.project__para There are two modes that generate rhythmic patterns for the relays using the bytebeat technique The user can shift and very the speed of the patterns with knobs mounted on the front of APVTV. While these modes are active, the bytebeat patterns also corrupt the video memory of the menu system, providing a feedback-like visual element in the absence of external video input.
-
+%p.project__para There are two modes that generate rhythmic patterns for the relays using the bytebeat technique. The user can shift and very the speed of the patterns with knobs mounted on the front of APVTV, or using external cntrol voltages. While these modes are active, the bytebeat patterns also corrupt the video memory of the menu system, providing a feedback-like visual element in the absence of external video input.
 
 %h2.project__heading APVFeedBakE in USE
 

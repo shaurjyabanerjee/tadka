@@ -6,15 +6,28 @@ category: electronics
 featured_img: "/assets/images/projects/p_electronics/p_electronics7.jpg"
 ---
 
+%p.project__para-1 Practical Electronics for The Curious Artist was a 5 day intensive workshop taught at CalArts by Mike Leisz and Shaurjya Banerjee in January, 2018. It was attended by 25 students from programs across the institute. 
+
 %iframe.project__video{:allow => "autoplay; encrypted-media", :allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/lO0RS7WPfiA?rel=0&controls=0&showinfo=0", :width => "560"}
 
 %div.project__image-container
-	- 1.upto(9) do |index|
+	- 1.upto(3) do |index|
 		= tag :img, src: "/assets/images/projects/p_electronics/p_electronics#{index}.jpg",class:'project__image'
 
-%p.project__para-1 Practical Electronics for The Curious Artist was a 5 day intensive workshop taught at CalArts by Mike Leisz and Shaurjya Banerjee in January, 2018. It was attended by 25 students from programs across the institute. 
+%p.project__para The goal of the class was to provide a foundational understanding of electronics and to introduce students to building circuits in an fun and engaging way. During this time students built their own audio and video synthesizer circuits, and learned how to read and write schematics.
 
-%p.project__para-2 The goal of the class was to provide a foundational understanding of electronics and to introduce students to building circuits in an fun and engaging way. During this time students build their own audio and video synthesizer circuits, and learned how to read and write schematics.
+%div.project__image-container
+	- 4.upto(6) do |index|
+		= tag :img, src: "/assets/images/projects/p_electronics/p_electronics#{index}.jpg",class:'project__image'
 
-%p.project__para The slides for the class can be downloaded <a href="https://s3-us-west-1.amazonaws.com/wholesomecircuits/p_electronics_slides.zip">here.</a>
+%p.project__link
+	= link_to "DOWNLOAD CLASS SLIDES from Practical Electronics for The Curious Artist", "https://s3-us-west-1.amazonaws.com/wholesomecircuits/p_electronics_slides.zip"
 
+%p.project__link
+	= link_to "DOWNLOAD CLASS MATERIALS from Practical Electronics for The Curious Artist", "https://s3-us-west-1.amazonaws.com/wholesomecircuits/p_electronics_scans.zip"
+
+%div.project__image-container
+	- 7.upto(9) do |index|
+		= tag :img, src: "/assets/images/projects/p_electronics/p_electronics#{index}.jpg",class:'project__image'
+
+%p.project__para If you would like us to teach Practical Electroncis for The Curious Artist in a workshop or class near you, please contact us at wholesomecircuits@gmail.com
