@@ -1,17 +1,24 @@
 ---
 
-title: beaver imaging devices
+title: Beaver Imaging Devices
 date: 2018-04-20 04:20 PDT
 category: electronics
 featured_img: "/assets/images/projects/beaver_imaging/bic1.jpg"
 ---
 
+%div.project__single__image
+	= tag :img, :src => "/assets/images/projects/beaver_imaging/bic1.jpg", class:'single__image'
+
 %p.project__para-1 The Beaver Imaging Controller is an open source Arduino-based device for camera control and camera based motion control. It is an in-progress project that aims to create a user-contributed set of features that can be used for a wide range of imaging applications.
 
 %p.project__para Currently, the Beaver Imaging Controller supports the OpenBuilds C-Beam Linear Motion System driven by a TB6600 Stepper Motor Driver, but this system may be adapted for use with a wide range of linear or rotational motion systems and stepper motor drivers.
 
+%p.project__para The Beaver Imaging Controller currently supports the automatic taking of stereo photographs, time lapses, panning time lapses and manual slider control. The speed and position of the camera can be controlled very precisely using this system, and the OpenBuilds C-Beam linear actuator is rated for a payload of upto 66lbs, high enough to move even the most excessive cinematic camera rigs.
+
+%p.project__para
+
 %p.project__para The current prototype of the Beaver Imaging Controller is pictured below.
 
 %div.project__image-container
-	- 1.upto(6) do |index|
+	- 2.upto(7) do |index|
 		= tag :img, src: "/assets/images/projects/beaver_imaging/bic#{index}.jpg",class:'project__image'

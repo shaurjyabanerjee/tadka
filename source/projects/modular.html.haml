@@ -1,0 +1,32 @@
+---
+
+title: Making Modular Synthesiers
+date: 2018-04-17 20:11 PDT
+category: electronics
+featured_img: "/assets/images/projects/mfos/mfos1.jpg"
+---
+
+%h2.project__heading MUSIC FROM OUTER SPACE MODULAR
+
+%p.project__para My first forray into building modular synthesizers was with Music From Outer Space modules in 2015. I decided that I wanted to build in the Eurorack format, and designed panels fro three modules - the Voltage Controlled Oscillator, Voltage Controlled State Variable Filter and Voltage Controlled Low Frequency Oscillator.
+
+//MFOS Image Grid
+%div.project__image-container
+	- 1.upto(6) do |index|
+		= tag :img, src: "/assets/images/projects/mfos/mfos#{index}.jpg",class:'project__image'
+
+%p.project__para The panels for all of the first run MFOS modules was machined from 6061 aluminium on a small Shapeoko 2 CNC machine. The vector files for CNC machining and engraving were created in Adobe Illustrator, and CAM files were prepared in CAMBAM.
+
+%p.project__para
+
+%p.project__para The graffiti text artwork for the VCOs was done by my friend Travis G Dale, which was then scanned and converted to vectors for engraving. The panel artwork for the LFO module was created procedurally using the Processing graphics programming environment. The panel artwork for the VCF is based on Felix the Cat LSD blotter sheets.
+
+%p.project__para Pictured below are the five modules I built in my first run of building MFOS modules. From left to right - VCO, VCO, LFO, VCF, VCF 
+
+%div.project__single__image
+	= tag :img, :src => "/assets/images/projects/mfos/mfos7.jpg", class:'single__image'
+
+%p.project__link
+	= link_to "Check out the Music From Outer Space website, an amazing resource on all things analog synthesizer","http://musicfromouterspace.com/"
+
+%h2.project__heading PANEL DESIGN - MFOS MKII
