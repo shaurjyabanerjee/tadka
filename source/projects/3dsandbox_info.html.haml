@@ -17,7 +17,7 @@ featured_img: "/assets/images/projects/sandbox/sandbox1.jpg"
 
 %p.project__para Our single camera 3D capture system was inpired by a piece by Santiago Caicedo called Moving Still, in which Caicedo used a video he recorded out of a the window of a train, and used a time delay between the frame displayed to each eye to create a stereoscopic image. 
 
-%p.project__para Since the train is moving with a relatively consistent speed, we can assume that some number of frames before the current frame the image was of the scene from some distance back towards the origin of the train. This alows for a time displacement to obtain a stereoscopic image.
+%p.project__para Since the train is moving with a relatively consistent speed, we can assume that some number of frames before the current frame the image was of the scene from some distance back towards the origin of the train. This alows for a time displacement to obtain a stereoscopic image. By changing frame delay between the two eyes, you can exaggerate the sense of depth, exactly as if increasing the inter-ocular separation.
 
 %p.external_link
 	= link_to "Santiago Caicedo explains his single camera stereo technique", "http://santisan.free.fr/moving_still/tusc1.htm"	
@@ -26,7 +26,22 @@ featured_img: "/assets/images/projects/sandbox/sandbox1.jpg"
 
 %iframe.project__video{:allow => "autoplay; encrypted-media", :allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/tazR2uehVwI?rel=0&showinfo=0", :width => "560"}
 
+%p.project__para We adapted this idea of moving a camera at a fixed speed from the domain of linear motion to that of rotational motion, spinning the camera at a constant speed on the spot instead of moving along a railroad or track. We used a simple adaptation of the APVCam, a device for camera motion control that I originally designed for APVFeedBakE, a video feedback sculptural device.
+
+%p.external_link
+	= link_to "More information about APVFeedBakE here", "/sculptures/apvfeedbake"
+
 %p.external_link
 	= link_to "More information about APVCam here", "/electronics/apvcam_info"
+
+%h2.project__heading 3DSANDBOX IN ACTION
+
+%p.external_link See 3DSANDBOX in action at the Black and White Gallery at California Institute of The Arts.
+
+%p.external_link
+	= link_to "More information about 3DSANDBOX", "/sculptures/3Dsandbox"
+
+%iframe.project__video{:allow => "autoplay; encrypted-media", :allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/FHqAtkwYdqs?rel=0&controls=0&showinfo=0", :width => "560"}
+
 
 
