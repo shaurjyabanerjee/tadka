@@ -15,7 +15,7 @@
 
 //Do not display any html on our game and video pages
 .games, .video, .about_me, .credits{
-  .project__meta {
+  .project__meta, .contact {
     display: none;
   }
 

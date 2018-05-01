@@ -86,9 +86,32 @@ h5 {
   }
 }
 
+.index__footer {
+  position:absolute;
+  font-family: 'Rubik';
+  width: 100%;
+  text-align: center;
+  opacity: 0.85;
+
+  font-size: 0.9rem;
+  @media #{$break-sm-plus} {
+    font-size: 1.2rem;
+  }
+
+  margin-bottom: 15px;
+  left: 0;
+  margin-top: 16vh;
+}
+
 h1.landing_page {
   opacity: 0.85;
-  font-size: 3rem;
+  font-size: 2rem;
+
+  //For every size bigger than a tablet
+  @media #{$break-sm-plus} {
+    font-size: 3rem;
+  }
+
   margin-bottom: 0px;
   margin-top: 8vh;
 }
@@ -115,7 +138,7 @@ body.electronics {
 }
 
 //Set pixel font for tech info pages
-body.resume {
+body.about_me {
   text-align: justify;
   text-justify: inter-word;
 
