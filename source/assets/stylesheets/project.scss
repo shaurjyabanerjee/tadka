@@ -14,7 +14,7 @@
 }
 
 //Do not display any html on our game and video pages
-.games, .video, .about_me, .resume {
+.games, .video, .about_me, .credits{
   .project__meta {
     display: none;
   }
@@ -25,6 +25,10 @@
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+.credits {
+  text-align: center;
 }
 
 .about_me {
