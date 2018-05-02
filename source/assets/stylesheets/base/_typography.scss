@@ -126,6 +126,11 @@ h5.landing_page {
   margin-top: 20vh;
 }
 
+//Center div on credits and contact pages
+div.credits, .contact {
+  margin-top: 20vh;
+}
+
 //Set pixel font for tech info pages
 body.electronics {
   //text-align: justify;
@@ -139,8 +144,7 @@ body.electronics {
 
 //Set pixel font for tech info pages
 body.about_me {
-  text-align: justify;
-  text-justify: inter-word;
+  text-align: left;
 
   font-family: 'Rubik Mono One';
   h1, h2, h3, h4, h5, time {
