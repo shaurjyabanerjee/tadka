@@ -11,6 +11,7 @@ const feedbake_snake          = require('./sketches/feedbake_snake');
 const grid_goop               = require('./sketches/goop1');
 const point_goop              = require('./sketches/goop3');
 const landing_goop            = require('./sketches/goop3_landing');
+const artscanvus              = require('./sketches/artscanvus')
 
 var bodyEl = document.getElementsByTagName('body')[0];
 var which_sketch = Math.random();
@@ -49,6 +50,13 @@ else if (bodyEl.classList.contains('games_goop')) {
   bodyEl.classList.add('goop');
   bodyReady();
   point_goop();
+
+}
+
+else if (bodyEl.classList.contains('artscanvus')) {
+  bodyEl.classList.add('artscanvus');
+  bodyReady();
+  artscanvus();
 
 }
 
