@@ -64,11 +64,11 @@ module.exports =  function() {
     p.keyPressed = function(){
       if (p.key == 'B') {brushColor = p.color(20, 60, 200);}
       else if (p.key == 'R') {brushColor = p.color(230, 10, 0);}
-      else if (p.key == 'G') {brushColor = p.color(30, 220, 90);}
+      else if (p.key == 'G') {brushColor = p.color(96, 169, 23);}
       else if (p.key == 'Y') {brushColor = p.color(250, 200, 0);}
       else if (p.key == 'P') {brushColor = p.color(250, 140, 190);}
       else if (p.key == 'Q') {brushColor = p.color(0);}
-      else if (p.key == 'O') {brushColor = p.color(210, 90, 0);}
+      else if (p.key == 'O') {brushColor = p.color(250, 104, 0);}
       else if (p.key == 'E') {brushColor = 255;}
       else if (p.key == 'X') {p.eraseCanvas();}
       else if (p.key == 'S') {p.downloadCanvas ();}
