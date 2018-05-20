@@ -2,10 +2,17 @@
 
 title: Modular Case + Power Distro System
 date: 2018-05-09 15:17 PDT
-
+category: electronics
+featured_img: "/assets/images/projects/euroskiff/euroskiff2.jpg"
 ---
 
 %p.project__para-1 Pictured below is a slim case and power distribution system I designed and built for my Eurorack Modular system. The case was handbuilt from African Mahogany and American Curly Maple, and was constructed using finger joints cut on a tablesaw using a custom made jig/sled.
+
+
+%div.project__image-container
+	- 1.upto(6) do |index|
+		= tag :img, src: "/assets/images/projects/euroskiff/euroskiff#{index}.jpg",class:'project__image'
+
 
 %p.project__para I designed the power distribution system for my specific system that has both 10 and 16 pin standard Eurorack shrouded headers, as well as three pin Molex connectors for my Music From Outer Space modules, and other non standard modules.
 
