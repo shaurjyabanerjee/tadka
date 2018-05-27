@@ -1,0 +1,26 @@
+---
+
+title: TOPGUN
+date: 2018-05-26 21:43 PDT
+category: electronics
+featured_img: "/assets/images/projects/topgun/topgun1.jpg"
+
+---
+
+%p.project__para-1 TOPGUN is an electromechanical device created to test the properties of tops by spinning them at very high speeds, upto 8000 rotations per minute. It can be used to spin tops at a very consistent speed, and hence can be used to test the physical properties of tops.
+
+%div.project__image-container
+	- 1.upto(6) do |index|
+		= tag :img, src: "/assets/images/projects/topgun/topgun#{index}.jpg",class:'project__image'
+
+%p.project__para TOPGUN uses a large 24 volt DC motor which spins at 3500 RPM and uses a friction wheel to transmit power to the shaft of the top. The shaft of the top is sandwiched between two nylon idler wheels which use bronze bushings as spacers. 
+
+%div.project__single__image
+	= tag :img, :src => "/assets/images/projects/topgun/annotated/topgun_a1.jpg", class:'single__image'
+
+%p.project__para The entire motor subassembly is on a linear guide system which is tensioned by a set of springs, which maintains pressure on the top as it being brought to speed. When the top has reached maximum speed, the motor assembly is pulled back, realeasing the top.
+
+%div.project__single__image
+	= tag :img, :src => "/assets/images/projects/topgun/annotated/topgun_a2.jpg", class:'single__image'
+
+%p.project__para The largest tops made from aluminium used with this machine have been measured to be spinning at up to 8500 RPM with an optical tachometer. These tops have been set in motion for upto 7.5 minutes in a single spin using TOPGUN.
