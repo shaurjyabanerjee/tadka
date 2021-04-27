@@ -5,24 +5,63 @@ date: 2018-10-10 15:17 PDT
 category: electronics
 featured_img: "/assets/images/projects/wing/wing_assembly6.jpg"
 ---
+%p.project__para-1 The Wing is a comissioned custom video game controller designed for the Amber Row VR Game, funded by the Princess Grace Foundation and the Stephen Hillenburg Foundation. 
 
-%p.project__para-1 Pictured below is a slim case and power distribution system I designed and built for my Eurorack Modular system. The case was handbuilt from African Mahogany and American Curly Maple, and was constructed using finger joints cut on a tablesaw using a custom made jig/sled.
+%div.project__single__image
+	= tag :img, :src => "/assets/images/projects/wing/wing_show2.jpg", class:'single__image'
 
-
-%div.project__image-container
-	- 1.upto(6) do |index|
-		= tag :img, src: "/assets/images/projects/wing/wing_assembly#{index}.jpg",class:'project__image'
-
-
-%p.project__para I designed the power distribution system for my specific system that has both 10 and 16 pin standard Eurorack shrouded headers, as well as three pin Molex connectors for my Music From Outer Space modules, and other non standard modules.
-
-%div.project__image-container
-	- 1.upto(3) do |index|
-		= tag :img, src: "/assets/images/projects/wing/wing_form#{index}.png",class:'project__image'
-
-%p.project__para I designed the power distribution system for my specific system that has both 10 and 16 pin standard Eurorack shrouded headers, as well as three pin Molex connectors for my Music From Outer Space modules, and other non standard modules.
+%p.project__para The PCB design for the project was done in Autodesk EagleCAD, with both the PCB and panel of the controller being made out of FR4 PCB material. The PCB was largely assembled by pick and place machine, with only the thru hole parts and quartz crystals being soldered on by hand.
 
 %div.project__image-container
 	- 1.upto(3) do |index|
 		= tag :img, src: "/assets/images/projects/wing/wing_pcb#{index}.png",class:'project__image'
 
+%p.project__para I sculpted the initial forms for ideas of The Wing out of simple craft store foam, to get a better sense of ergonomics while giving myself a reference for the finished size and shape of the controller.
+
+%div.project__image-container
+	- 1.upto(6) do |index|
+		= tag :img, src: "/assets/images/projects/wing/wing_foam#{index}.jpg",class:'project__image'
+
+%p.project__para Working backwards from the chosen foam sculpt, a artistic low polygon model of the outside form of the controller was created. This is the starting point for all of the features that will need to be added to turn this into a functional controller.
+
+%div.project__image-container
+	- 1.upto(3) do |index|
+		= tag :img, src: "/assets/images/projects/wing/wing_form#{index}.png",class:'project__image'
+
+%p.project__para I started by shelling the model to create a constant wall thickness with a release draft angle built in, and then added features one at a time to meet all my design parameters.
+
+%p.project__para The controllers are designed to be compatible with NES contorller D Pad and A B buttons. The additional home and select buttons are custom deisgned and 3D printed in clear PETG for robustness and to allow light diffusion.
+
+%div.project__image-container
+	- 1.upto(6) do |index|
+		= tag :img, src: "/assets/images/projects/wing/wing_assembly#{index}.jpg",class:'project__image'
+
+%p.project__para A long chain of iterative development was required to perfect each of the required features for the housing of The Wing. This process was facilitated by 3D printer rapid prototyping. The final design uses brass heat set threaded inserts to provide better thread engagement for the panel screws. The final controller housings were made out of vaccum cast epoxy eurathane.
+
+%div.project__single__image
+	= tag :img, :src => "/assets/images/projects/wing/wing11.jpg", class:'single__image'
+
+
+%div.project__image-container
+	- 1.upto(9) do |index|
+		= tag :img, src: "/assets/images/projects/wing/wing#{index}.jpg",class:'project__image'
+
+%p.project__para The panel design for The Wing aims to best leverage the medium of PCB manufacturing to have a panel with fine routed slots, flathead countersunk brass hardware, metallic embellishments and hold outs to allow light to shine thru the panel. The panels were finally fabricated with optional matte black or gloss white soldermask.
+
+%div.project__image-container
+	- 2.upto(4) do |index|
+		= tag :img, src: "/assets/images/projects/wing/wing_panel#{index}.jpg",class:'project__image'
+
+
+%p.project__para The controllers LED colors are driven by a Gaussian noise table, and the controller has a screensaver mode that automatically kicks in after a few minutes of inactivity. 
+
+%div.project__image-container
+	- 1.upto(9) do |index|
+		= tag :img, src: "/assets/images/projects/wing/wing_show#{index}.jpg",class:'project__image'
+
+%p.project__para Hardware and Electronics development - Shaurjya Banerjee
+%p.project__para Firmware and Embedded Systems development - James Anderson
+
+
+%div.project__single__image
+	= tag :img, :src => "/assets/images/projects/wing/wing12.jpg", class:'single__image'
